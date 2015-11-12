@@ -174,9 +174,12 @@ a .fa {
 	background: #ffff80;
 	padding: 0.3em;
 }
-.toggleblock input[type="checkbox"] {
+/*.toggleblock input[type="checkbox"] {*/
+.unsichtbar {
 	position: absolute;
 	left: -900em;
+	top: auto;
+	overflow: hidden;
 }
 .toggleblock input[type="checkbox"] ~ .toggleitem {
 	display: none;
