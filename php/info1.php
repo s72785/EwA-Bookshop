@@ -1,6 +1,9 @@
 <html>
 <body>
-	<?php
-	phpinfo();?>
+<?php
+
+	phpinfo();
+
+?>
 </body>
 </html>
