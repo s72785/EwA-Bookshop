@@ -1,7 +1,7 @@
 <?php
 
-include("versand.php");
-include("werbung.php");
+include('versand.php');
+include('werbung.php');
 
 //print_r($_POST);
 $artikel[0]["Name"]="Self-PHP";
@@ -28,24 +28,24 @@ if ( !empty( $_POST["artikel"] ) ){
 }
 
 $gewicht = $gesamt_gewicht/1000;
-echo "<hr />";
-echo "Zwischensummer:".$summe."<br />";
+echo "<hr />\n";
+echo "Zwischensummer:".$summe."<br />\n";
 
 foreach ($versand as $key => $val)
 {
 		if ($gewicht<=$key)
 		{
 			$summe = $summe + $val;
-			echo "Versandkosten:" . $val;
+			echo "Versandkosten:" . $val . "\n";
 			break;
 		}
 }
-echo "<hr />";
+echo "<hr />\n";
 
-echo "Endsummer:". ($summe*1.07) . "<br />";
-echo "Gesamtgewicht:".$gesamt_gewicht . "<hr />";
+echo "Endsummer:". ($summe*1.07) . "<br />\n";
+echo "Gesamtgewicht:".$gesamt_gewicht . "<hr />\n";
 /*print_R($werbung);
 echo $_POST["werbung"];*/
-echo "Fand Shop über: ".(!empty($werbung[$_POST["werbung"]])?$werbung[$_POST["werbung"]]:"keine Angaben")." ";
+echo "Fand Shop über: " . (!empty($werbung[$_POST["werbung"]])?$werbung[$_POST["werbung"]]:"keine Angaben") . "\n";
 
 ?>
