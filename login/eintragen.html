@@ -1,23 +1,41 @@
+<!doctype html><html><head><title>Bookshop - Login</title><meta charset="UTF-8">
+<style>
+label {
+	display: inline-block;
+	width: 23ex;
+}
+input[type="text"],input[type="password"] {
+	
+}
+input[type="submit"] {
+	border-radius: 0.5ex;
+	margin: 0.3ex;	
+}
+</style>
+</head><body>
+
 <form action="eintragen.php" method="post">
-	Dein Username:<br>
+	<label for="username">Dein Username</label>
 	<input type="text" size="24" maxlength="50"
-	name="username"><br><br>
+	name="username" id="username"><br>
 
-	Dein Passwort:<br>
+	<label for="password">Dein Passwort</label>
 	<input type="password" size="24" maxlength="50"
-	name="password"><br>
+	name="password" id="password"><br>
 
-	Passwort wiederholen:<br>
+	<label for="password2">Passwort wiederholen</label>
 	<input type="password" size="24" maxlength="50"
-	name="password2"><br>
+	name="password2" id="password2"><br>
 	
-	Name:<br>
+	<label for="name">Name</label>
 	<input type="text" size="24" maxlength="50"
-	name="name"><br>
+	name="name" id="name"><br>
 	
-	Adresse:<br>
+	<label for="address">Adresse</label>
 	<input type="text" size="24" maxlength="50"
-	name="address"><br>
+	name="address" id="address"><br>
 
 	<input type="submit" value="Abschicken">
 </form>
+
+</body></html>

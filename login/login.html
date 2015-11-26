@@ -1,11 +1,29 @@
-<form action="login.php" method="post">
-	Dein Username:<br>
-	<input type="text" size="24" maxlength="50"
-	name="username"><br><br>
+<!doctype html><html><head><title>Bookshop - Login</title><meta charset="UTF-8">
+<style>
+label {
+	display: inline-block;
+	width: 16ex;
+}
+input[type="text"],input[type="password"] {
+	
+}
+input[type="submit"] {
+	border-radius: 0.5ex;
+	margin: 0.3ex;	
+}
+</style>
+</head><body>
 
-	Dein Passwort:<br>
+<form action="login.php" method="post">
+	<label for="username">Dein Username</label>
+	<input type="text" size="24" maxlength="50"
+	name="username" id="username"><br>
+
+	<label for="password">Dein Passwort</label>
 	<input type="password" size="24" maxlength="50"
-	name="password"><br>
+	name="password" id="password"><br>
 
 	<input type="submit" value="Login">
 </form>
+
+</body></html>
