@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>   
+	<a href="javascript:history.back()">Zurück</a>
+	<div onmouseover="mausedrueber(this)" onmouseout="mausweg(this)"><h3>Ich bin eine Überschrift</h3></div>
+
+	<script>
+	alert("Willkommen bei der Javascript-Demo von Gruppe 05!");
+
+
+
+	function mausedrueber(ueberschrift){
+
+		 ueberschrift.innerHTML = "MAUS darüber";
+	}
+	
+	
+	function mausweg(ueberschrift){
+
+		 ueberschrift.innerHTML = "MAUS weg";
+	}
+	</script>
+	</body>
+</html>
