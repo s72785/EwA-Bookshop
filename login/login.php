@@ -12,6 +12,16 @@
 	include_once( '' /**/ . '../shop/' /**/ . 'dbconf.php' );
 	include_once( '' /**/ . '../login/' /**/ . 'functions.php' );
 
+	if (empty($_POST['username']) &&  empty($_POST['username']))
+		die("tod");
+		
+	if (!empty($_POST['username']))
+		$username = $_POST['username'];
+		
+	if (!empty($_POST['password']))
+		$password = $_POST['password'];
+	
+	
 	// handle should be put in a static object that can discontinue itself with a nother method AKA deconstructor after db_close
 	$verbindung = mysql_connect( $dbhost, $dbuser, $dbpass )
 	or die( "Verbindung zur Datenbank konnte nicht hergestellt werden" );
@@ -20,7 +30,7 @@
 	$username = $_POST['username'];
 
 	//never use LIKE for comparison of login credential, it can be alike, no difference with upper/lower cases
-	$abfrage = "SELECT Username, Userpwmd5 FROM User WHERE LOWER( Username ) = LOWER( '" . $username . "' ) LIMIT 1;";
+	$abfrage = "SELECT Username, Userpwmd5 FROM User WHERE LOWER( Username ) = LOWER( '" . mysql_escape_string( $username ). "' ) LIMIT 1;";
 	$ergebnis = mysql_query( $abfrage );
 	$row = mysql_fetch_object( $ergebnis );
 
