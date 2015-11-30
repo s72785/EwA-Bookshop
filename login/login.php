@@ -26,7 +26,7 @@
 
 	include_once( 'salt.php' );
 
-	if(
+	if(!empty($row->Userpwmd5) && 
 		//new: 
 		hashcmp( $_POST['password'], $row->Userpwmd5, $hashsalt )
 		//after all are migrated: password_verify( $_POST['password'] . $hashsalt, $row->Userpwmd5 )
