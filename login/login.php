@@ -45,6 +45,7 @@
 		$_SESSION["username"] = $username;
 		echo( 'Login erfolgreich.<br><a href="bestellformular.php">Geschützter Bereich</a>' );
 	} else {
+		header("Location: ./login.html#wrong_password"); /* Redirect browser */
 		echo( 'Benutzername und/oder Passwort waren falsch. <a href="login.html">Login</a>' );
 	}
 
