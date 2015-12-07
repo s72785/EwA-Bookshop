@@ -18,14 +18,18 @@ $dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
 	die( 'Keine Verbindung möglich: ' . mysql_error() );
 mysql_select_db( $dbname );
 
+$suche = (isset($_POST['suche'])) ? $_POST['suche'] : '' ;
+
 $sql = 'SELECT bu.id AS id, barcode, titel, au.name AS autor FROM 
 						buecher AS bu JOIN autor AS au ON au.id = bu.autorid
 						JOIN verlag AS ve ON ve.id = bu.verlagsid
-						where (titel like \'%'.$_POST["suche"].'%\' or 
-								au.name like \'%'.$_POST["suche"].'%\' or
-								ve.name like \'%'.$_POST["suche"].'%\'	)';
-#echo $sql;
-$result = mysql_query($sql  );
+						where (
+							titel like \'%' . mysql_escape_string( $suche ) . '%\' or 
+							au.name like \'%' . mysql_escape_string( $suche ) . '%\' or
+							ve.name like \'%' . mysql_escape_string( $suche ) . '%\'
+						)';
+//echo $sql;
+$result = mysql_query( $sql );
 
 if( $result === FALSE ) {
 	die( mysql_error() ); // TODO: better error handling
