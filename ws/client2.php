@@ -60,9 +60,13 @@ class RequestType
 	$bank->blz    = $blz;
 
 	$SOAPClient = new SoapClient($wsdl, $options);
-	$result     = $SOAPClient->getBank($bank);
 
+try{
+	$result     = $SOAPClient->getBank($bank);
 	print_r($result);
+} catch(Exception $e){
+	echo( $e->getMessage() . "\n" );
+}
 
 /*	echo $SOAPClient->sagHallo('Tom') . "<br>\n";
 	$r=$SOAPClient->checkLuhn($cc);
