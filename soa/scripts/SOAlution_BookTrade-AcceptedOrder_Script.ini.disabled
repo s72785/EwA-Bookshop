@@ -1,0 +1,14 @@
+;SOAlution_BookTrade-AcceptedOrder_Script
+[Script]
+Name=BookTrade-AcceptedOrder
+Type=ServiceMediation
+
+[ServiceMediation]
+Mode=DirectRoute
+
+[InputEndpoint]
+Name=Shop-AcceptedOrder
+
+[OutputEndpoint]
+Name=Reseller-WS2
+Path=http://localhost:8080/Reseller/BookTrade/

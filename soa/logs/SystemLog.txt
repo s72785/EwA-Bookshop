@@ -1,0 +1,63 @@
+#01.01.2016 15:43:01  [Info]  SOAlution v1.2.0.0: Service Bus <G05> starting
+#01.01.2016 15:43:01  [Info]  Loading script file <SOAlution_BookTrade-AcceptedOrder_Script.ini.disabled>
+#01.01.2016 15:43:01  [Info]  Loading script file <SOAlution_BookTrade-NewOrder_Script.ini.disabled>
+#01.01.2016 15:43:01  [Info]  Loading script file <SOAlution_SimpleFlatFileMapping_Script.ini>
+#01.01.2016 15:43:01  [Info]  Service <SimpleFlatFileMapping> registered
+#01.01.2016 15:43:01  [Info]  Loading script file <SOAlution_SimplePassThroughMessaging_Script.ini>
+#01.01.2016 15:43:01  [Info]  Service <SimplePassThroughMessaging> registered
+#01.01.2016 15:43:01  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/ started
+#01.01.2016 15:43:01  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/Control/ started
+#01.01.2016 15:55:50  [Info]  Service Bus <G05> stopped
+#01.01.2016 15:55:50  [Info]  Service Bus <G05> Instance Web Service stopped
+#01.01.2016 15:55:50  [Info]  Service Bus <G05> Instance Web Service stopped
+#01.01.2016 15:56:12  [Info]  SOAlution v1.2.0.0: Service Bus <G05> starting
+#01.01.2016 15:56:12  [Info]  Loading script file <SOAlution_BookTrade-AcceptedOrder_Script.ini.disabled>
+#01.01.2016 15:56:12  [Info]  Loading script file <SOAlution_BookTrade-NewOrder_Script.ini.disabled>
+#01.01.2016 15:56:12  [Info]  Loading script file <SOAlution_SimpleFlatFileMapping_Script.ini>
+#01.01.2016 15:56:12  [Info]  Service <SimpleFlatFileMapping> registered
+#01.01.2016 15:56:12  [Info]  Loading script file <SOAlution_SimplePassThroughMessaging_Script.ini>
+#01.01.2016 15:56:12  [Info]  Service <SimplePassThroughMessaging> registered
+#01.01.2016 15:56:12  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/ started
+#01.01.2016 15:56:12  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/Control/ started
+#01.01.2016 16:01:27  [Info]  Service Bus <G05> stopped
+#01.01.2016 16:01:27  [Info]  Service Bus <G05> Instance Web Service stopped
+#01.01.2016 16:01:27  [Info]  Service Bus <G05> Instance Web Service stopped
+#01.01.2016 16:01:56  [Info]  SOAlution v1.2.0.0: Service Bus <G05> starting
+#01.01.2016 16:01:56  [Info]  Loading script file <SOAlution_BookTrade-AcceptedOrder_Script.ini.disabled>
+#01.01.2016 16:01:56  [Info]  Loading script file <SOAlution_BookTrade-NewOrder_Script.ini.disabled>
+#01.01.2016 16:01:56  [Info]  Loading script file <SOAlution_SimpleFlatFileMapping_Script.ini>
+#01.01.2016 16:01:56  [Info]  Service <SimpleFlatFileMapping> registered
+#01.01.2016 16:01:56  [Info]  Loading script file <SOAlution_SimplePassThroughMessaging_Script.ini>
+#01.01.2016 16:01:56  [Info]  Service <SimplePassThroughMessaging> registered
+#01.01.2016 16:01:56  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/ started
+#01.01.2016 16:01:56  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/Control/ started
+#03.01.2016 19:17:12  [Info]  Service Bus <G05> stopped
+#03.01.2016 19:17:12  [Info]  Service Bus <G05> Instance Web Service stopped
+#03.01.2016 19:17:12  [Info]  Service Bus <G05> Instance Web Service stopped
+#03.01.2016 19:17:45  [Info]  SOAlution v1.2.0.0: Service Bus <G05> starting
+#03.01.2016 19:17:45  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/ started
+#03.01.2016 19:17:45  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/Control/ started
+#04.01.2016 12:31:55  [Info]  Service Bus <G05> stopped
+#04.01.2016 12:31:55  [Info]  Service Bus <G05> Instance Web Service stopped
+#04.01.2016 12:31:55  [Info]  Service Bus <G05> Instance Web Service stopped
+#04.01.2016 12:32:54  [Info]  SOAlution v1.2.0.0: Service Bus <G05> starting
+#04.01.2016 12:32:54  [Info]  Loading script file <SOAlution_BookTrade-AcceptedOrder_Script.ini.disabled>
+#04.01.2016 12:32:54  [Info]  Loading script file <SOAlution_BookTrade-NewOrder_Script.ini.disabled>
+#04.01.2016 12:32:54  [Info]  Loading script file <SOAlution_SimpleFlatFileMapping_Script.ini>
+#04.01.2016 12:32:54  [Info]  Service <SimpleFlatFileMapping> registered
+#04.01.2016 12:32:54  [Info]  Loading script file <SOAlution_SimplePassThroughMessaging_Script.ini>
+#04.01.2016 12:32:54  [Info]  Service <SimplePassThroughMessaging> registered
+#04.01.2016 12:32:54  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/ started
+#04.01.2016 12:32:54  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/Control/ started
+#04.01.2016 13:24:24  [Info]  Service Bus <G05> stopped
+#04.01.2016 13:24:24  [Info]  Service Bus <G05> Instance Web Service stopped
+#04.01.2016 13:24:24  [Info]  Service Bus <G05> Instance Web Service stopped
+#04.01.2016 13:25:40  [Info]  SOAlution v1.2.0.0: Service Bus <G05> starting
+#04.01.2016 13:25:40  [Info]  Loading script file <SOAlution_BookTrade-AcceptedOrder_Script.ini.disabled>
+#04.01.2016 13:25:40  [Info]  Loading script file <SOAlution_BookTrade-NewOrder_Script.ini.disabled>
+#04.01.2016 13:25:40  [Info]  Loading script file <SOAlution_SimpleFlatFileMapping_Script.ini>
+#04.01.2016 13:25:40  [Info]  Service <SimpleFlatFileMapping> registered
+#04.01.2016 13:25:40  [Info]  Loading script file <SOAlution_SimplePassThroughMessaging_Script.ini>
+#04.01.2016 13:25:40  [Info]  Service <SimplePassThroughMessaging> registered
+#04.01.2016 13:25:40  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/ started
+#04.01.2016 13:25:40  [Info]  Service Bus <G05> Instance Web Service at http://141.56.131.108:8080/System/Instance/G05/Control/ started

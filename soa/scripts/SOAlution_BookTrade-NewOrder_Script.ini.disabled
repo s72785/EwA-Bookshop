@@ -1,0 +1,19 @@
+;SOAlution_BookTrade-NewOrder_Script
+[Script]
+Name=BookTrade-NewOrder
+Type=ServiceMediation
+
+[ServiceMediation]
+Mode=ConditionalRoute
+Clause=If totalPrice > 500 Then Shop-CheckOrder Else Reseller-WS
+
+[InputEndpoint]
+Name=Shop-NewOrder
+
+[OutputEndpoint1]
+Name=Reseller-WS
+Path=http://localhost:8080/Reseller/BookTrade/
+
+[OutputEndpoint2]
+Name=Shop-CheckOrder
+Path=http://localhost/SOAlution/Docs/OnlineShop/OS_Book-Order_Server.php
