@@ -42,6 +42,11 @@ $artikel[2]["Name"]="PHP-Kochbuch";
 $artikel[2]["Preis"]="18.00";
 $artikel[2]["Gewicht"]="1300";
 
+if ( !empty( $_POST["werbung"] ) ) {
+	$adpos=$_POST["werbung"];
+} else {
+	$adpos=99;//keine angabe
+}
 $summe=0;
 $gesamt_gewicht=0;
 $vat = 0.07; //7% USt auf Bücher
@@ -75,7 +80,7 @@ echo "Endsummer:". ( $summe * ( 1 + $vat ) ) . "<br />\n";
 echo "Gesamtgewicht:".$gesamt_gewicht . "<hr />\n";
 /*print_R($werbung);
 echo $_POST["werbung"];*/
-echo "Fand Shop über: " . (!empty($werbung[$_POST["werbung"]])?$werbung[$_POST["werbung"]]:"keine Angaben") . "\n";
+echo "Fand Shop über: " . (!empty($werbung[$adpos])?$werbung[$adpos]:"keine Angaben") . "\n";
 
 /* 6. Zeigen Sie nach erfolgter Berechnung das Eingabeformular aus 4. erneut an und
 vermerken Sie die bereits ermittelten Preis und Gewichtsangaben als verborgene
