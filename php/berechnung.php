@@ -62,7 +62,7 @@ foreach ($versand as $key => $val)
 {
 		if ($gewicht<=$key)
 		{
-			$versand = $val
+			$versand = $val;
 			break;
 		}
 }
