@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- http://www.xmlvalidation.com/ -->
+<!-- DTD wurde zu Testzwecken auf der Validation-Webseite in die XML-Datei eingebettet -->
+<!-- Ergebnis: No errors were found -->
+<!-- XML Datei wurde verändert! Weitere Änderungen folgen -->
+<!-- Als Hilfe folgende Seite benutzt https://wiki.selfhtml.org/wiki/XML/DTD/Attribute_und_Wertzuweisungen -->
+<!-- <!DOCTYPE katalog SYSTEM "http://ivm108.informatik.htw-dresden.de/ewa/g05/xml/book.dtd"> -->
+
+<!DOCTYPE katalog [
+<!ELEMENT katalog (buch)*>
+
+<!ELEMENT buch 
+	(titel, barcode, autor, autorid, verlag, verlagid,
+	netto, mws, lager?, gewicht?, beschreibung?, analog?)
+>
+
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT barcode (#PCDATA)>
+<!ELEMENT autor (#PCDATA)>	
+<!ELEMENT autorid (#PCDATA)>
+<!ELEMENT verlag (#PCDATA)>	
+<!ELEMENT verlagid (#PCDATA)>
+<!ELEMENT netto (#PCDATA)>
+<!ELEMENT mws (#PCDATA)>
+<!ATTLIST mws
+	wert (0 | 7 | 19) "7"
+>
+<!ELEMENT lager (#PCDATA)>
+<!ELEMENT gewicht (#PCDATA )>
+<!ATTLIST gewicht
+	einheit ( g | kg | lb ) "g"
+>
+<!ELEMENT beschreibung (#PCDATA)>
+<!ELEMENT analog (#PCDATA)>
+<!ATTLIST analog 
+	breite CDATA #REQUIRED
+	länge CDATA #REQUIRED
+	höhe CDATA #REQUIRED
+>
+]>
+
+<katalog>
+	<buch>
+		<titel>EWA OS</titel>
+		<barcode>2356223</barcode>
+		<autor>Wolf</autor>
+		<autorid>2</autorid>
+		<verlag>Springer</verlag>
+		<verlagid>123123</verlagid>
+		<netto>10.90</netto>
+		<mws>19</mws>
+		<lager>2</lager>
+		<gewicht einheit="g">200</gewicht>
+		<beschreibung>Das ist ein Buch</beschreibung>
+		<analog breite="10" länge="5" höhe="50">Abmessungen</analog>
+	</buch>
+	<buch>
+		<titel>Hörbuch</titel>
+		<barcode>123456</barcode>
+		<autor>Mike</autor>
+		<autorid>3</autorid>
+		<verlag>Springer</verlag>
+		<verlagid>123123</verlagid>
+		<netto>0.99</netto>
+		<mws>19</mws>
+		<beschreibung>Das ist ein Hörbuch Buch</beschreibung>
+	</buch>
+	<buch>
+		<titel>E-Book</titel>
+		<barcode>23563</barcode>
+		<autor>Tom</autor>
+		<autorid>3</autorid>
+		<verlag>Springer</verlag>
+		<verlagid>123123</verlagid>		
+		<netto>0.99</netto>
+		<mws>19</mws>
+		<beschreibung>Das ist ein E-Buch</beschreibung>
+	</buch>
+</katalog>

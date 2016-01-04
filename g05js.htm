@@ -46,15 +46,32 @@
 	<div>Ihre Festerauflösung innen: <script type="text/javascript">document.write(window.outerWidth + ' x ' +  window.outerHeight);</script></div>
 	<br>
 	<div> <form action="demo_form.asp">
-		Anzahl: <input class="rechner" type="text" name="anzahl" id="anzahl"><br>
-		Nettopreis: <input class="rechner" type="text" name="netto" id="netto"><br>
+		Anzahl: <input class="rechner" type="text" name="anzahl" id="anzahl" value="0"><br>
+		Nettopreis: <input class="rechner" type="text" name="netto" id="netto" value="0"><br>
 		Mwst: <input class="rechner" readonly="readonly" type="text" name="mwst" id="mwst" value="1.19">%<br>
 		Netto gesamt: <input readonly="readonly" type="text" name="ngesamt" id="ngesamt"><br>
 		Brutto gesamt: <input readonly="readonly" type="text" id="bgesamt" name="bgesamt"><br>
 </form> 
 	<script>
+	
+
+	function check(elm){
+			var intRegex = /^\d+$/;
+			var floatRegex = /^((\d+(\.\d *)?)|((\d*\.)?\d+))$/;
+
+			if(!(intRegex.test(elm.value) || floatRegex.test(elm.value))) {
+			   alert('Ungültige Eingabe');
+			   elm.value = "0";
+			}
+	
+	}
 	$(".rechner").change(
 		function(){
+		
+
+			
+			check($('#anzahl')[0]);
+			check($('#netto')[0]);
 			
 			$('#ngesamt')[0].value = $('#anzahl')[0].value * $('#netto')[0].value;
 			$('#bgesamt')[0].value = $('#ngesamt')[0].value * $('#mwst')[0].value;

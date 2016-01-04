@@ -1,0 +1,30 @@
+<!ELEMENT katalog (buch)*>
+
+<!ELEMENT buch 
+	(titel, barcode, autor, autorid, verlag, verlagid,
+	netto, mws, lager?, gewicht?, beschreibung?, analog?)
+>
+
+<!ELEMENT titel (#PCDATA)>
+<!ELEMENT barcode (#PCDATA)>
+<!ELEMENT autor (#PCDATA)>	
+<!ELEMENT autorid (#PCDATA)>
+<!ELEMENT verlag (#PCDATA)>	
+<!ELEMENT verlagid (#PCDATA)>
+<!ELEMENT netto (#PCDATA)>
+<!ELEMENT mws (#PCDATA)>
+<!ATTLIST mws
+	wert (0 | 7 | 19) "7"
+>
+<!ELEMENT lager (#PCDATA)>
+<!ELEMENT gewicht (#PCDATA )>
+<!ATTLIST gewicht
+	einheit ( g | kg | lb ) "g"
+>
+<!ELEMENT beschreibung (#PCDATA)>
+<!ELEMENT analog (#PCDATA)>
+<!ATTLIST analog 
+	breite CDATA #REQUIRED
+	länge CDATA #REQUIRED
+	höhe CDATA #REQUIRED
+>
