@@ -30,7 +30,7 @@
 	$username = $_POST['username'];
 
 	//never use LIKE for comparison of login credential, it can be alike, no difference with upper/lower cases
-	$abfrage = "SELECT Username, Userpwmd5 FROM User WHERE LOWER( Username ) = LOWER( '" . mysql_escape_string( $username ). "' ) LIMIT 1;";
+	$abfrage = "SELECT UserID, Username, Userpwmd5 FROM User WHERE LOWER( Username ) = LOWER( '" . mysql_escape_string( $username ). "' ) LIMIT 1;";
 	$ergebnis = mysql_query( $abfrage );
 	$row = mysql_fetch_object( $ergebnis );
 
@@ -42,7 +42,8 @@
 		//after all are migrated: password_verify( $_POST['password'] . $hashsalt, $row->Userpwmd5 )
 		//old: $row->Userpwmd5 == pwd_hash_old( $_POST['password'] )
 	) {
-		$_SESSION["username"] = $username;
+		$_SESSION['username'] = $username;
+		$_SESSION['userid'] = $row->UserID;
 		echo( 'Login erfolgreich.<br><a href="bestellformular.php">Geschützter Bereich</a>' );
 	} else {
 		header("Location: ./login.html#wrong_password"); /* Redirect browser */

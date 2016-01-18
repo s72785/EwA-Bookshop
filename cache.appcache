@@ -24,7 +24,7 @@ NETWORK:
 CACHE:
 #parts to cache
 ./index.html
-./shop/index.html
+#./shop/index.html
 ./shop/itemform.html
 ./shop/itemview.html
 ./about/index.html
