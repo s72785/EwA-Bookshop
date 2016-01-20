@@ -1,32 +1,33 @@
 <!doctype html><html><head><title>Bookshop - Login</title><meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/style.css">
 <style>
 label {
-	display: inline-block;
-	width: 16ex;
+	display: inline-block !important;
+	width: 20ex !important;
 }
 input[type="text"],input[type="password"] {
-	max-width: 150px;
+	
 }
 input[type="submit"] {
-	border-radius: 0.5ex;
-	margin: 0.3ex;	
+	border-radius: 0.5ex !important;
+	margin: 0.3ex !important;
 }
 </style>
 </head><body>
 
-<div style="width: 195px;">
+<div><h2>Login</h2>
 <form action="login.php" method="post">
 	<label for="username">Dein Username</label>
-	<input type="text" size="24" maxlength="50"
+	<input type="text" size="14" maxlength="50"
 	name="username" id="username"><br>
 
 	<label for="password">Dein Passwort</label>
-	<input type="password" size="24" maxlength="50"
+	<input type="password" size="14" maxlength="50"
 	name="password" id="password"><br>
 
 	<input type="submit" value="Login">
 </form>
-
+<small><a href="eintragen.html">Registrieren</a></small>
 </div>
 
 </body></html>
