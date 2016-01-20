@@ -27,7 +27,7 @@ footer {
 }
 nav{
 	flex: 1 2 0%;
-	background: #a0f0f0;
+	background: #cdebf0;
 	min-width: 150px;
 	align-self: flex-start;
 	order: 2;
@@ -46,14 +46,14 @@ aside{
 	align-self:center;
 }
 a {
-	color: red;
+	color: #1e00c8;
 	text-decoration: none;
 }
 a:hover {
 	color: red;
 	text-decoration: underline;
 }
-wrapper {
+div#wrapper {
 	display: flex;
 	/*flex-direction: row;*/
 	flex-flow: row wrap;
@@ -223,4 +223,8 @@ a .fa {
 nav > ul li label {
 	background: rgba(0,0,0,0) !important;
 	vertical-align: top;
+}
+#loginframe {
+	border: 0;
+	overflow: scroll;
 }
