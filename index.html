@@ -85,7 +85,7 @@
 			<input id="abnahme-cb" name="abnahme-cb" type="checkbox" aria-hidden="true" class="unsichtbar">
 			<label for="abnahme-cb">Abnahme</label>
 			<ul class="toggleitem">
-				<li><a href="daten/checkliste-v1.pdf" title="Website Buchgeschäft">1</a> - <a href="./">a</a> - b</a> - <a href="">c</a> - <a href="">d</a>
+				<li><a href="daten/checkliste-v1.pdf" title="Website Buchgeschäft">1</a> - <a href="./">a</a> - <span class="strike" title="kein Teil der Übungen">b</span> - <a href="">c</a> - <a href="">d</a>
 				</li>
 				<li><a href="daten/checkliste-v1.pdf" title="Servergrundinstallation">2</a>
 				- <a href="http://141.56.131.108/ewa/g05/conf" title="Lösung zu Aufgabe 2b">conf</a> - <a href="http://141.56.131.108/ewa/g05/admin/" title="Lösung zu Aufgabe 2c">admin</a> - <a href="http://141.56.131.108/ewa/g05/datenadm/datendemo.txt" title="Lösung zu Aufgabe 2d">datendemo.txt</a>
@@ -115,9 +115,9 @@ Auch interessant: <a href="http://idlewords.com/talks/website_obesity.htm">Perfo
 
 <figure id="wiedemann-foto-figure" class="boxshadow">
 	<picture title="Foto von Prof. Dr.-Ing. Thomas Wiedemann">
-		<source media="(min-width: 64em)" src="img/high-res.jpg">
-		<source media="(min-width: 37.5em)" src="img/med-res.jpg">
-		<source src="img/low-res.jpg">
+		<source media="(min-width: 64em)" srcset="img/high-res.jpg" type="image/jpeg">
+		<source media="(min-width: 37.5em)" srcset="img/med-res.jpg" type="image/jpeg">
+		<source srcset="img/low-res.jpg" type="image/jpeg">
 		<img src="img/med-res.jpg"  srcset="img/high-res.jpg" alt="für alte Browser"><!-- fallback -->
 	</picture>
 	<figcaption>
