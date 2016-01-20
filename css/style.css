@@ -58,7 +58,7 @@ div#wrapper {
 	/*flex-direction: row;*/
 	flex-flow: row wrap;
 }
-li {
+ul li {
 	list-style: inside none none;
 	text-indent: 0;
 }
@@ -226,7 +226,9 @@ nav > ul li label {
 }
 #loginframe {
 	border: 0;
-	overflow: scroll;
+	width: 200px;
+	height: 400px;
+	overflow: hidden;
 }
 .strike {
 	text-decoration: line-through;
