@@ -198,9 +198,9 @@ Es wäre ja gelacht, wenn das nicht geht...
 
 <ul>
 	<!-- grp05 -->
-	<li><a href="g05.html#v"  rel="author" title="vladimir">vladimir</a></li>
-	<li><a href="g05.html#w" rel="author" title="wolf" class="wolf-face"></a></li>
-	<li><a href="g05.html#p"  rel="author" title="patu">patu</a></li>
+	<li><a href="?show=about#v"  rel="author" title="vladimir">vladimir</a></li>
+	<li><a href="?show=about#w" rel="author" title="wolf" class="wolf-face"></a></li>
+	<li><a href="?show=about#p"  rel="author" title="patu">patu</a></li>
 	<!-- contact & copyleft -->
 	<li class="toggleblock">
 		<input type="checkbox" id="contact-cb" name="contact-cb" class="unsichtbar">
@@ -208,8 +208,12 @@ Es wäre ja gelacht, wenn das nicht geht...
 		<label for="contact-cb" class="toggleitem centerblock">&nbsp;</label>
 		<div class="centeritem toggleitem">
 			<h3>Kontakt</h3>
-			<p>Wir sind nach Stundenplan des Kurses im Rechner-Labor anzutreffen.</p>
-		
+			<p>Wir sind während des Semesters nach Stundenplan des Kurses im Rechner-Labor anzutreffen. Anschließend versucht es einfach nur noch über das Repo.</p>
+			<p>
+				HTW Dresden<br>
+				IW, WiSe 2015/2016, Kurs EwA, Gruppe&nbsp;05<br>
+				Labor Z&nbsp;355
+			</p>
 			<div class="close"><label class="ib-label" for="contact-cb">Schließen</label></div>
 		</div>
 	</li>
