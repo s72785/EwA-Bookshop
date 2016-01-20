@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!doctype html>
 <html manifest="cache.appcache" lang="de-de">
 <head>
@@ -216,3 +219,6 @@ Es wäre ja gelacht, wenn das nicht geht...
 <!-- pu js at end to have dom loaded for modifications
 	<script src="" type="text/javascript"></script>
 -->
+<?php
+ob_end_flush();
+?>

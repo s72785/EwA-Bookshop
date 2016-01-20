@@ -15,8 +15,9 @@ input[type="submit"] {
 </style>
 </head><body>
 
-<div><h3>Login</h3>
-<form action="login.php" method="post">
+<div>
+<fieldset form="login-form"><legend>Login</legend>
+<form name="login-form" id="login-form" action="login.php" method="post">
 	<label for="username">Dein Username</label>
 	<input type="text" size="14" maxlength="50"
 	name="username" id="username"><br>
@@ -27,7 +28,8 @@ input[type="submit"] {
 
 	<input type="submit" value="Login">
 </form>
-<small><a href="eintragen.html">Registrieren</a></small>
+</fieldset>
+<small style="margin-left: 3em;"><a href="eintragen.html">Registrieren</a></small>
 </div>
 
 </body></html>

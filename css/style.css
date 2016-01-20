@@ -233,3 +233,6 @@ nav > ul li label {
 .strike {
 	text-decoration: line-through;
 }
+fieldset {
+	border: 1px solid black;
+}
