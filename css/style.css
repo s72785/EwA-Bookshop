@@ -228,3 +228,6 @@ nav > ul li label {
 	border: 0;
 	overflow: scroll;
 }
+.strike {
+	text-decoration: line-through;
+}
