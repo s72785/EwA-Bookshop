@@ -89,17 +89,17 @@ ob_start();
 			<label for="abnahme-cb">Abnahme</label>
 			<ul class="toggleitem">
 				<li><a href="./daten/checkliste-v1.pdf" title="Website Buchgeschäft">1</a>
-				- <a href="http://141.56.131.108/ewa/g05/index.php" title="Lösung zu Aufgabe 1">Startseite</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/index.php" title="Lösung zu Aufgabe 1">Startseite</a>
  				</li>
 				<li><a href="./daten/checkliste-v1.pdf" title="Servergrundinstallation">2</a>
-				- <a href="http://141.56.131.108/ewa/g05/conf" title="Lösung zu Aufgabe 2b">conf</a> - <a href="http://141.56.131.108/ewa/g05/admin/" title="Lösung zu Aufgabe 2c">admin</a>
-				- <a href="http://141.56.131.108/ewa/g05/datenadm/datendemo.txt" title="Lösung zu Aufgabe 2d">datendemo.txt</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/conf" title="Lösung zu Aufgabe 2b">conf</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/admin/" title="Lösung zu Aufgabe 2c">admin</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/datenadm/datendemo.txt" title="Lösung zu Aufgabe 2d">datendemo.txt</a>
  				</li>
 				<li><a href="./daten/checkliste-v1.pdf" title="XML-Aufgabe">3</a>
- 				- <a href="http://141.56.131.108/ewa/g05/xml/book.xml" title="Lösung zu XML-Aufgabe">XML inkl. DTD</a> - <a href="http://141.56.131.108/ewa/g05/xml/xml.php" title="Alternativ-Lösung zu XML-Aufgabe">XML Reader</a>
+ 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/xml/book.xml" title="Lösung zu XML-Aufgabe">XML inkl. DTD</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/xml/xml.php" title="Alternativ-Lösung zu XML-Aufgabe">XML Reader</a>
  				</li>
 				<li><a href="./daten/checkliste-v1.pdf" title="PHP–Aufgaben">4</a>
- 				- <a href="http://141.56.131.108/ewa/g05/shop/suche.php" title="Lösung zu Aufgabe 4a">Suche</a> - <a href="http://141.56.131.108/ewa/g05/login/eintragen.html" title="Lösung zu Aufgabe 4b">Registrierung</a>
+ 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/shop/suche.php" title="Lösung zu Aufgabe 4a">Suche</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/login/eintragen.html" title="Lösung zu Aufgabe 4b">Registrierung</a>
  				</li>
 				<li><a href="./daten/checkliste-v1.pdf" title="Javascript und RIA">5</a>
 				- <a href="#" title="Lösung zu Aufgabe 5a">Bestelldaten</a> - <a href="#" title="Lösung zu Aufgabe 5b">Kataloglistenanzeige</a>
@@ -111,7 +111,7 @@ ob_start();
 				- <a href="#" title="Lösung zu Aufgabe 7a">Fehlende Bücher</a> - <a href="#" title="Lösung zu Aufgabe 7b">Versandabwicklung</a>
  				</li>
 				<li><a href="./daten/checkliste-v1.pdf" title="Wordpress">8</a>
-				- <a href="#" title="Lösung zu Aufgabe 8">Wordpress Installation</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/wordpress/" title="Lösung zu Aufgabe 8">Wordpress Installation</a>
  				</li>
 			</ul>
 			</li><!-- html secial character demo -->
