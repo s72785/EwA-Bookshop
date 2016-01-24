@@ -12,9 +12,9 @@ ob_start();
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link type="text/plain" rel="author" href="./humans.txt">
-	<link type="text/plain" rel="license" href="./photos.txt">
-	<!--link type="text/plain" rel="robots" href="./robots.txt"-->
+	<link type="text/plain" rel="author" href="http://ivm108.informatik.htw-dresden.de/ewa/g05/humans.txt">
+	<link type="text/plain" rel="license" href="http://ivm108.informatik.htw-dresden.de/ewa/g05/photos.txt">
+	<!--link type="text/plain" rel="robots" href="http://ivm108.informatik.htw-dresden.de/ewa/g05/robots.txt"-->
 	<meta name="robots" content="index,follow">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
 </head><body>
@@ -39,78 +39,78 @@ ob_start();
 			<label for="exercises-cb">&Uuml;bungen</label>
 			<ul class="toggleitem">
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ub12/U1_tcpipftp_vw.pdf" title="Netzwerküberwachung und -analyse">1</a>
-				- <a href="#" title="Lösung zu Übung 1">Lsg: 1</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 1">Lsg: 1</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ewa12/UB_FTP_HTTP_SERVER_vu.pdf" title="Installation FTP-/HTTP-Server">2</a>
-				- <a href="#" title="Lösung zu Übung 2">Lsg: 2</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 2">Lsg: 2</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ub/ewa_U3_HTML_vx1.pdf" title="Übung zu HTML & CSS">3</a>
-				- <a href="#" title="Lösung zu Übung 3">Lsg: 3</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 3">Lsg: 3</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/U4_XML_vs.pdf" title="Übung zu XML">4</a>
-				- <a href="#" title="Lösung zu Übung 4">Lsg: 4</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 4">Lsg: 4</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ewa_v50_webappseinf_vp1.pdf" title="Entw. von Webapplikationen">5</a>
-				- <a href="#" title="Lösung zu Übung 5">Lsg: 5</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 5">Lsg: 5</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/U5_php_vp1ok.pdf" title="Grundlagen der PHP-Programmierung">6</a>
-				- <a href="#" title="Lösung zu Übung 6">Lsg: 6</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 6">Lsg: 6</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ub/u6_DBmitPHP_vx.pdf" title="DB-Programmierung mit PHP">7</a>
-				- <a href="#" title="Lösung zu Übung 7">Lsg: 7</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 7">Lsg: 7</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ub/u7_PHPSessions_vx.pdf" title="PHP-Session-Management">8</a>
-				- <a href="#" title="Lösung zu Übung 8">Lsg: 8</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 8">Lsg: 8</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ub/U8_javascript_vx.pdf" title="Übung zu JavaScript">9</a>
-				- <a href="#" title="Lösung zu Übung 9">Lsg: 9</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 9">Lsg: 9</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ub/U9b_JQuery_vx.pdf" title="Übung zu JQuery">10</a>
-				- <a href="#" title="Lösung zu Übung 10">Lsg: 10</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 10">Lsg: 10</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ub12/u13_webservices_vu.pdf" title="Übung zu Web Services">11</a>
-				- <a href="#" title="Lösung zu Übung 11">Lsg: 11</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/ws/" title="Lösung zu Übung 11">Lsg: 11</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ub12/U14_services_vt6.pdf" title="Übung zu SOA (mit Hinweis (neu))">12</a>
-				- <a href="#" title="Lösung zu Übung 12">Lsg: 12</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 12">Lsg: 12</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ub12/U12_typo3_vt.pdf" title="Übung zu CMS am Beispiel von TYPO3">13</a>
-				- <a href="#" title="Lösung zu Übung 13">Lsg: 13</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 13">Lsg: 13</a>
 				</li>
 				<li><a href="http://iasp2.informatik.htw-dresden.de/wiedem/fileadmin/Lehre/ewa/ewa12/ewa2012_PR_Usability-Barrierefreiheit.pdf" title="Praktikum Usability und Barrierefreiheit">14</a>
-				- <a href="#" title="Lösung zu Übung 14">Lsg: 14</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Übung 14">Lsg: 14</a>
 				</li>
 			</ul>
 		</li><!-- html secial character demo -->
-		<li><a href="./login/login.html">Login</a></li>
-		<li><a href="./g05js.htm">Demo-Datei</a></li>
+		<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/login/login.html">Login</a></li>
+		<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/g05js.htm">Demo-Datei</a></li>
 		<li class="hover toggleblock">
 			<input id="abnahme-cb" name="abnahme-cb" type="checkbox" aria-hidden="true" class="unsichtbar">
 			<label for="abnahme-cb">Abnahme</label>
 			<ul class="toggleitem">
-				<li><a href="./daten/checkliste-v1.pdf" title="Website Buchgeschäft">1</a>
+				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="Website Buchgeschäft">1</a>
 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/index.php" title="Lösung zu Aufgabe 1">Startseite</a>
  				</li>
-				<li><a href="./daten/checkliste-v1.pdf" title="Servergrundinstallation">2</a>
+				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="Servergrundinstallation">2</a>
 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/conf" title="Lösung zu Aufgabe 2b">conf</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/admin/" title="Lösung zu Aufgabe 2c">admin</a>
 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/datenadm/datendemo.txt" title="Lösung zu Aufgabe 2d">datendemo.txt</a>
  				</li>
-				<li><a href="./daten/checkliste-v1.pdf" title="XML-Aufgabe">3</a>
+				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="XML-Aufgabe">3</a>
  				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/xml/book.xml" title="Lösung zu XML-Aufgabe">XML inkl. DTD</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/xml/xml.php" title="Alternativ-Lösung zu XML-Aufgabe">XML Reader</a>
  				</li>
-				<li><a href="./daten/checkliste-v1.pdf" title="PHP–Aufgaben">4</a>
+				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="PHP–Aufgaben">4</a>
  				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/shop/suche.php" title="Lösung zu Aufgabe 4a">Suche</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/login/eintragen.html" title="Lösung zu Aufgabe 4b">Registrierung</a>
  				</li>
-				<li><a href="./daten/checkliste-v1.pdf" title="Javascript und RIA">5</a>
-				- <a href="#" title="Lösung zu Aufgabe 5a">Bestelldaten</a> - <a href="#" title="Lösung zu Aufgabe 5b">Kataloglistenanzeige</a>
+				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="Javascript und RIA">5</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 5a">Bestelldaten</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 5b">Kataloglistenanzeige</a>
  				</li>
-				<li><a href="./daten/checkliste-v1.pdf" title="Webservice">6</a>
-				- <a href="#" title="Lösung zu Aufgabe 6a">KK-Test</a> - <a href="#" title="Lösung zu Aufgabe 6b">KK-Check</a> - <a href="#" title="Lösung zu Aufgabe 6c">BLZ-Datenermittlung</a>
+				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="Webservice">6</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 6a">KK-Test</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 6b">KK-Check</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 6c">BLZ-Datenermittlung</a>
  				</li>
-				<li><a href="./daten/checkliste-v1.pdf" title="SOA">7</a>
-				- <a href="#" title="Lösung zu Aufgabe 7a">Fehlende Bücher</a> - <a href="#" title="Lösung zu Aufgabe 7b">Versandabwicklung</a>
+				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="SOA">7</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 7a">Fehlende Bücher</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 7b">Versandabwicklung</a>
  				</li>
-				<li><a href="./daten/checkliste-v1.pdf" title="Wordpress">8</a>
+				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="Wordpress">8</a>
 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/wordpress/" title="Lösung zu Aufgabe 8">Wordpress Installation</a>
  				</li>
 			</ul>
@@ -119,9 +119,21 @@ ob_start();
 </nav>
 
 <section class="boxshadow">
-<!--<?php
+<?php
 
-?>-->
+if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
+
+	switch( $_GET['show'] ){
+		case 'about':
+			include_once('about/g05.php');
+		break;
+		case 'admin':
+			header('location: /ewa/g05/admin/');
+		break;
+	}
+
+} else {
+?>
 <h2>Demo f. Entw. Web-Applikationen</h2>
 
 Auch interessant: <a href="http://idlewords.com/talks/website_obesity.htm">Performantere Seiten, wo gibt es das?</a>
@@ -162,10 +174,9 @@ Es wäre ja gelacht, wenn das nicht geht...
 	<li>Seite validiert beim W3C ohne Warnung und Fehler</li>
 	</ol>
 </div>
-<!--
 <?php
+}
 ?>
--->
 </section>
 
 <aside class="boxshadow">

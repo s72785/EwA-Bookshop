@@ -244,3 +244,12 @@ form input[type="submit"] {
 	border-radius: 0.5ex !important;
 	margin: 0.3ex !important;
 }
+table tr td {
+	text-align: center;
+}
+.one {
+	background: #ffa;
+}
+.two {
+	background: #aff;
+}
