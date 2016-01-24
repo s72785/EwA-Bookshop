@@ -1,5 +1,5 @@
 <?php
-echo('<pre>.'.$_POST['blz'].'.</pre>');
+
 if(
 /*	(
 		empty($_POST['send'])
@@ -10,6 +10,8 @@ if(
 	//{}elseif*/
 	(
 		//$_POST['send'] != ['Bankabfrage']||
+		!isset($_POST['blz'])
+		||
 		empty($_POST['blz'])
 	)
 ){
@@ -19,7 +21,7 @@ if(
 <title>Bezahlen
 </title></head>
 <body>
-<form method="post">
+<form method="post" action="client.php">
 	<label for="cc">Kreditkartennummer:</label><input type="text" name="cc" id="cc" value="41111" />
 	<input type="submit" name="send" id="send" value="Bezahlen" />
 </form>
@@ -63,7 +65,13 @@ class RequestType
 
 try{
 	$result     = $SOAPClient->getBank($bank);
-	print_r($result);
+	echo('<b>Abfrage für BLZ <i>'.$blz.'</i> Erfolgreich</b><pre>');
+//	print_r($result);
+	echo('
+Bank	 : '.$result->details->bezeichnung.'
+BIC	 : '.$result->details->bic.'
+PLZ, Ort : '.$result->details->plz.', '.$result->details->ort
+);
 } catch(Exception $e){
 	echo( $e->getMessage() . "\n" );
 }
