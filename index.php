@@ -130,6 +130,14 @@ if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 		case 'admin':
 			header('location: /ewa/g05/admin/');
 		break;
+		case 'shop':
+//			include_once('suche.php');
+			echo('
+<iframe src="shop/suche.php" name="suche" id="suchframe" style="display: block; width: 100%;height:100%;border:0;overflow:hidden;">  
+	<p>Ihr Browser kann leider keine eingebetteten Frames anzeigen: Sie können die eingebettete Seite über den folgenden Verweis aufrufen: <a href="http://wiki.selfhtml.org/wiki/Startseite">SELFHTML</a> </p>
+</iframe>	
+			');
+		break;
 	}
 
 } else {
@@ -187,7 +195,7 @@ Es wäre ja gelacht, wenn das nicht geht...
 
 <aside class="boxshadow">-->
 <h2>Am Rande</h2>
-	 <iframe src="login/login.html" name="login" id="loginframe"> 
+	<iframe src="login/login.html" name="login" id="loginframe"> 
 		 <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen: Sie können die eingebettete Seite über den folgenden Verweis aufrufen: <a href="http://wiki.selfhtml.org/wiki/Startseite">SELFHTML</a> </p>
 	</iframe>	
 <h3>Quellen</h3>

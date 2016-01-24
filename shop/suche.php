@@ -30,4 +30,6 @@ include_once("ergebnisse.php");
 	});
 
  </script>
-</body></html>
+<?php
+echo '</body></html>';
+?>

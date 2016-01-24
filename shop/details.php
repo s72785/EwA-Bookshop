@@ -9,7 +9,9 @@ $dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
 	die( 'Keine Verbindung möglich: ' . mysql_error() );
 mysql_select_db( $dbname );
 
-$result = mysql_query('SELECT bu.id, barcode, titel, au.name AS autor FROM buecher AS bu JOIN autor AS au ON au.id = bu.autorid WHERE bu.id='."'" . (INT) $_GET['id'] . "'");
+if( isset($_GET['id'] ) ) {
+
+$result = mysql_query('SELECT bu.id, barcode, titel, au.name AS autor FROM buecher AS bu JOIN autor AS au ON au.id = bu.autorid'.( ( !isset($_GET['id'] ) )?'':" WHERE bu.id='" . intval($_GET['id']) ) . "'");
 
 if($result === FALSE) { 
 	die( mysql_error() ); // TODO: better error handling
@@ -26,6 +28,10 @@ while ( $row = mysql_fetch_array( $result ) ) {
 echo( '</table>' );  
 
 mysql_free_result($result);
+
+} else {
+	echo('Keine Details ohne <a href="details.php?id=1">ID</a>.');
+}
 
 mysql_close( $dblink );
 
