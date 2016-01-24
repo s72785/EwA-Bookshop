@@ -105,7 +105,7 @@ ob_start();
 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 5a">Bestelldaten</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 5b">Kataloglistenanzeige</a>
  				</li>
 				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="Webservice">6</a>
-				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 6a">KK-Test</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 6b">KK-Check</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 6c">BLZ-Datenermittlung</a>
+				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/ws/" title="Lösung zu Aufgabe 6a">KK-Test</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/ws/client.php" title="Lösung zu Aufgabe 6b">KK-Check</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/ws/client2.php" title="Lösung zu Aufgabe 6c">BLZ-Datenermittlung</a>
  				</li>
 				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="SOA">7</a>
 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 7a">Fehlende Bücher</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 7b">Versandabwicklung</a>
