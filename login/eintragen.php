@@ -71,11 +71,11 @@
 
 		mysql_select_db($dbname) or die ("Datenbank konnte nicht ausgewählt werden");
 
-		$result = mysql_query("SELECT UserID FROM User WHERE Username = '".$username."';");
+		$result = mysql_query("SELECT UserID FROM User WHERE Username = '".mysql_escape_string($username)."';");
 		$menge = mysql_num_rows($result);
 
 		if( $menge == 0 ) {
-			$eintrag = "INSERT INTO User (Username, Userpwmd5, UserAnrede, UserAdresse) VALUES ('".$username."', '".$password."', '".$name."', '".$address."');";
+			$eintrag = "INSERT INTO User (Username, Userpwmd5, UserAnrede, UserAdresse) VALUES ('".mysql_escape_string($username)."', '".$password."', '".mysql_escape_string($name)."', '".mysql_escape_string($address)."');";
 			$eintragen = mysql_query( $eintrag );
 
 			if($eintragen == true) {
