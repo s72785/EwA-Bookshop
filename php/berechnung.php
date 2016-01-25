@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /* Übung: U5_php_vp1ok.pdf */
 
 /* 4. Erstellen Sie ein HTML- Bestellformular (bestellg0.html) mit drei Eingabefeldern
@@ -45,16 +45,21 @@ $artikel[2]["Gewicht"]="1300";
 if ( !empty( $_POST["werbung"] ) ) {
 	$adpos=$_POST["werbung"];
 } else {
-	$adpos=99;//keine angabe
+	$adpos=99;
 }
 $summe=0;
 $gesamt_gewicht=0;
 $vat = 0.07; //7% USt auf Bücher
 
 if ( !empty( $_POST["artikel"] ) ){
-	foreach( $_POST["artikel"] as $val ) {
-		$summe += $artikel[0]["Preis"] * $val;
-		$gesamt_gewicht += $artikel[0]["Gewicht"] * $val;
+	$_SESSION['artikel'] = $_POST["artikel"];
+
+	foreach( $_POST["artikel"] as $key => $val ) {
+		if (!empty($val))
+		{
+			$summe += $artikel[$key]["Preis"] * $val;
+			$gesamt_gewicht += $artikel[$key]["Gewicht"] * $val;	
+		}
 	}
 	
 }
@@ -78,6 +83,9 @@ echo "<hr />\n";
 
 echo "Endsummer:". ( $summe * ( 1 + $vat ) ) . "<br />\n";
 echo "Gesamtgewicht:".$gesamt_gewicht . "<hr />\n";
+
+include_once("../shop/getDeliveryTime.php");
+echo " Liefertage <hr />";
 /*print_R($werbung);
 echo $_POST["werbung"];*/
 echo "Fand Shop über: " . (!empty($werbung[$adpos])?$werbung[$adpos]:"keine Angaben") . "\n";
@@ -92,3 +100,7 @@ Bestellung hinzu. .
  * */
 
 ?>
+<form type="post" action="../shop/doOrder.php">
+<input type="submit" value="bestellen">
+
+</form>
