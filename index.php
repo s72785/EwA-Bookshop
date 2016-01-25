@@ -146,6 +146,9 @@ if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 			//print_r();
 			include_once('shop/details.php'/*.'?id='.$_GET['id']/**/);
 		break;
+		case 'ergebnisse':
+			include_once('shop/'.$_GET['show'].'.php');
+		break;
 		case 'about':
 			include_once('about/g05.php');
 		break;
@@ -220,12 +223,12 @@ Es wäre ja gelacht, wenn das nicht geht...
 
 <aside class="boxshadow">-->
 <h2>Am Rande</h2>
-	<small>iFrame-Demo</small><br>
+<!--	<small>iFrame-Demo</small><br>
 	<small style="margin-left: 1em;"><a href="login/login.php" target="loginframe">Login</a></small>
 	<small style="margin-left: 1em;"><a href="login/eintragen.php" target="loginframe">Registrieren</a></small>
 	<iframe src="login/login.html" name="loginframe" id="loginframe"> 
 		 <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen: Sie können die eingebettete Seite über den folgenden Verweis aufrufen: <a href="http://wiki.selfhtml.org/wiki/Startseite">SELFHTML</a> </p>
-	</iframe>	
+	</iframe>	-->
 <h3>Quellen</h3>
 <p>
 	In Anlehnung an u.a.
