@@ -1,18 +1,18 @@
 ## TEAM 
 
-	Position : void
+	Position : procrastination officer
 	Name     : V.
 	From     : unknown
 	Location : bar
 
-	Position : void
+	Position : tryouts trainee
 	Name     : Wolf
 	Contact  : classroom
 	Repo     : http://github.com/s72785/
 	From     : the internet
 	Location : deep web
 
-	Position : void
+	Position : sustainability commissioner
 	Name     : P.
 	From     : nature
 	Location : woods
@@ -27,15 +27,24 @@
 
 ## Danke an
 
+	Poition  : professor web application development
 	Name     : Prof.: Wiedemann
 	WWW      : http://www.htw-dresden.de/en/faculty-of-informaticsmathematics/personal/professuren/prof-dr-thomas-wiedemann.html
 	Contact  : 
 	From     : academia
 	Location : labs
 
+	Position : laboratory angel
+	Name     : D.
+	WWW      : http://www.htw-dresden.de/en/faculty-of-informaticsmathematics/personal/professuren/prof-dr-thomas-wiedemann.html
+	Contact  : 
+	From     : academia
+	Location : university of applied sciences
+
 ## Site
 
 	Sprache    : Deutsch
 	Doctype    : HTML5
-	Components : HTML5, CSS, Webfonts, WebCache
+	Components : HTML5, CSS, JavaScript, PHP, SOAP, XML, Webfonts, WebCache
 	IDE        : GNU/Linux, vi, XAMPP, FileZilla
+	Host       : Windows, Apache
