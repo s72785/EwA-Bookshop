@@ -9,9 +9,11 @@ echo( '<!doctype html><html><head><title>Bookshop - Übersicht</title><meta char
 </form> 
 <div id="main">
 <?php
-include_once("ergebnisse.php");
+$ergebnisse='ergebnisse.php';todo: pfad zusammenfummeln damit einbindung passt
+include_once($ergebnisse);
 ?>
 </div>
+<small>basiert auf <a href="<?php echo($ergebnisse); ?>">ergebnisse</a></small>
 <script type="text/javascript">
 	
 	function suche(suche)
