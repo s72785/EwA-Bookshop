@@ -34,9 +34,9 @@ session_start();
 	<ul>
 		<li><a href="?show=shop">Buchshop</a></li><!-- shop/ -->
 		<li><a href="<?php
-		if ( $_GET['show']!='login' || !isset($_SESSION['userid']) || empty($_SESSION['userid']) ) {
+		if ( ( isset($_GET['show']) &&$_GET['show']!='login') || !isset($_SESSION['userid']) || empty($_SESSION['userid']) ) {
 			echo( 'http://ivm108.informatik.htw-dresden.de/ewa/g05/?show=login">Login</a></li>'
-				.'<a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/?show=eintragen">Registrieren'
+				.'<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/?show=eintragen">Registrieren'
 			);
 		} else {
 			echo( 'http://ivm108.informatik.htw-dresden.de/ewa/g05/?show=logout">Logout' );
@@ -206,8 +206,9 @@ Es wäre ja gelacht, wenn das nicht geht...
 	<li>Kompatibilität: CSS statt JavaScript für Ein-/Ausblendefunktionen</li>
 	<li>Barrierefreiheit mit ARIA (Screenreader-Kompatibilität)</li>
 	<li><a href="./photos.txt">photos.txt</a>, <a href="./humans.txt">humans.txt</a> (statt nur robots.txt), <a href="about/jslicenses.html">jslicense</a> vorbereitet.</li>
-	<li>Seite validiert beim W3C ohne Warnung und Fehler</li>
+	<li>HTML5 validiert beim W3C ohne Warnung und Fehler</li>
 	<li>Verwendung von header(), z.B. HTTP Status Code 404 für nicht erreichbare Inhalte</li>
+	<li>Verbesserungspotential d. Apache-Config entdeckt: Server-Variablen für URL-Bestandteile verfügbar machen</li>
 	</ol>
 </div>
 <?php
@@ -269,7 +270,13 @@ Es wäre ja gelacht, wenn das nicht geht...
 	</li>
 	<li><a href="https://creativecommons.org/licenses/by/3.0/" title="Copyleft" rel="license">CC-BY&nbsp;3.0</a></li>
 	<li><a href="http://wave.webaim.org/report#http://ivm108.informatik.htw-dresden.de/ewa/g05/">UX-Test</a></li>
-	<li><a href="https://validator.w3.org/nu/?useragent=Validator.nu%2FLV+http%3A%2F%2Fvalidator.w3.org%2Fservices&doc=http%3A%2F%2Fivm108.informatik.htw-dresden.de%2Fewa%2Fg05%2F">Validate</a></li>
+	<li><?php
+?><a href="https://validator.w3.org/nu/?useragent=Validator.nu%2FLV+http%3A%2F%2Fvalidator.w3.org%2Fservices&doc=<?php
+	$url='http'.(( isset( $_SERVER["HTTPS"] ) && strtolower( $_SERVER["HTTPS"] ) == "on" )?'s':'')
+		.'://'.$_SERVER['HTTP_HOST']
+		.(($_SERVER["PHP_SELF"]=='/ewa/g05/index.php')?'/ewa/g05/':$_SERVER["PHP_SELF"]) ;
+	echo( urlencode( $url ) );
+	?>" target="_blank">Validate</a></li>
 	<!--li><a href="about/jslicenses.html" rel="jslicense">JS&nbsp;Lizenzen</a></li--><!-- documenting licenses when using javascript -->
 </ul>
 
