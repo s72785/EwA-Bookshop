@@ -83,7 +83,7 @@ ob_start();
 			</ul>
 		</li><!-- html secial character demo -->
 		<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/login/login.html">Login</a></li>
-		<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/g05js.htm">Demo-Datei</a></li>
+		<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/g05js.htm">JS-Demo</a></li>
 		<li class="hover toggleblock">
 			<input id="abnahme-cb" name="abnahme-cb" type="checkbox" aria-hidden="true" class="unsichtbar">
 			<label for="abnahme-cb">Abnahme</label>
