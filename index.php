@@ -182,7 +182,7 @@ Es wäre ja gelacht, wenn das nicht geht...
 	<li>Hashing skalierbar mit Runden und austauschbarem Algorythmus</li>
 	<li>Kompatibilität: CSS statt JavaScript für Ein-/Ausblendefunktionen</li>
 	<li>Barrierefreiheit mit ARIA (Screenreader-Kompatibilität)</li>
-	<li>photos.txt, humans.txt (statt nur robots.txt)</li>
+	<li><a href="./photos.txt">photos.txt</a>, <a href="./humans.txt">humans.txt</a> (statt nur robots.txt), <a href="about/jslicenses.html">jslicense</a> vorbereitet.</li>
 	<li>Seite validiert beim W3C ohne Warnung und Fehler</li>
 	</ol>
 </div>
