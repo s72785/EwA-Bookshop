@@ -9,7 +9,8 @@ $response=$client->GetRandom($param_arr);
 $response_arr=objectToArray($response);
 // Extract array from response structure
 $getRandomResult=$response_arr['GetRandomResult'];
-echo"GetRandom(...) returns: ".$getRandomResult;
+echo('SOAP::GetRandom(...) returns: '.$getRandomResult);
+
 // Helper functionto convert an object to an array
 function objectToArray($d){
 	if(is_object($d)){
@@ -20,5 +21,5 @@ function objectToArray($d){
 		}else{
 			return $d;
 		}
-	}
+}
 ?>
