@@ -1,12 +1,19 @@
-<!doctype html><html><head><title>Bookshop - Login</title><meta charset="UTF-8">
+<!--<!doctype html><html><head><title>Bookshop - Login</title><meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/style.css">
 <style>
 </style>
 </head><body>
-<div>
+-->
+<div id="login">
 <fieldset form="reg-form"><legend>Registrieren</legend>
 
-<form name="reg-form" id="reg-form" action="eintragen.php" method="post">
+<form name="reg-form" id="reg-form" action="<?
+	if( !isset($caller) ) {
+		echo('eintragen.php');
+	} else {
+		echo('?show=eintragen');
+	}
+?>" method="post">
 	<label for="username">Dein Username</label>
 	<input type="text" size="14" maxlength="50"
 	name="username" id="username"><br>
@@ -30,6 +37,7 @@
 	<input type="submit" value="Abschicken">
 </form>
 </fieldset>
-<small style="margin-left: 3em;"><a href="login.html">Login</a></small>
+<!--<small style="margin-left: 3em;"><a href="login.html">Login</a></small>-->
 </div>
-</body></html>
+<!--
+</body></html>-->

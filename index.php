@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start();
 ?>
 <!doctype html>
 <html manifest="cache.appcache" lang="de-de">
@@ -31,8 +32,16 @@ ob_start();
 <nav class="boxshadow">
 	<h2>Inhalte</h2>
 	<ul>
-		<li><a href="?show=about">EwA G05</a></li><!-- about/index.html -->
 		<li><a href="?show=shop">Buchshop</a></li><!-- shop/ -->
+		<li><a href="<?php
+		if ( $_GET['show']!='login' || !isset($_SESSION['userid']) || empty($_SESSION['userid']) ) {
+			echo( 'http://ivm108.informatik.htw-dresden.de/ewa/g05/?show=login">Login</a></li>'
+				.'<a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/?show=eintragen">Registrieren'
+			);
+		} else {
+			echo( 'http://ivm108.informatik.htw-dresden.de/ewa/g05/?show=logout">Logout' );
+		}
+		?></a></li>
 		<li><a href="?show=admin">Verwaltung</a></li><!-- ./shop/admin/ -->
 		<li class="hover toggleblock">
 			<input id="exercises-cb" name="exercises-cb" type="checkbox" aria-hidden="true" class="unsichtbar">
@@ -82,8 +91,7 @@ ob_start();
 				</li>
 			</ul>
 		</li><!-- html secial character demo -->
-		<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/login/login.html">Login</a></li>
-		<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/g05js.htm">JS-Demo</a></li>
+		<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/g05js.htm" target="_blank">JS-Demo</a></li>
 		<li class="hover toggleblock">
 			<input id="abnahme-cb" name="abnahme-cb" type="checkbox" aria-hidden="true" class="unsichtbar">
 			<label for="abnahme-cb">Abnahme</label>
@@ -115,6 +123,7 @@ ob_start();
  				</li>
 			</ul>
 			</li><!-- html secial character demo -->
+		<li><a href="?show=about">EwA G05</a></li><!-- about/index.html -->
 	</ul>
 </nav>
 
@@ -123,17 +132,8 @@ ob_start();
 
 if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 
+	$caller='index.php';
 	switch( $_GET['show'] ){
-		case 'details':
-			//print_r();
-			include_once('shop/details.php'/*.'?id='.$_GET['id']/**/);
-		break;
-		case 'about':
-			include_once('about/g05.php');
-		break;
-		case 'admin':
-			header('location: /ewa/g05/admin/');
-		break;
 		case 'shop':
 			include_once('shop/suche.php');
 /*			echo('
@@ -142,6 +142,26 @@ if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 </iframe>	
 			');/**/
 		break;
+		case 'details':
+			//print_r();
+			include_once('shop/details.php'/*.'?id='.$_GET['id']/**/);
+		break;
+		case 'about':
+			include_once('about/g05.php');
+		break;
+		case 'login':
+		case 'eintragen':
+			include_once('login/'.$_GET['show'].'.php');
+		break;
+		case 'admin':
+			header('location: /ewa/g05/admin/');
+		break;
+		default:
+			header($_SERVER['SERVER_PROTOCOL'].' 404 Not Found');
+			if( !isset($_GET['show']) || !empty($_GET['show']) ) {
+				echo( '<h2><span id="HTTP_STATUS_CODE">404</span> - Content not found: '.$_GET['show'].'</h2>' );
+			}
+			echo( '<p>Inhalt nicht verfügbar.</p>' );
 	}
 
 } else {
@@ -184,6 +204,7 @@ Es wäre ja gelacht, wenn das nicht geht...
 	<li>Barrierefreiheit mit ARIA (Screenreader-Kompatibilität)</li>
 	<li><a href="./photos.txt">photos.txt</a>, <a href="./humans.txt">humans.txt</a> (statt nur robots.txt), <a href="about/jslicenses.html">jslicense</a> vorbereitet.</li>
 	<li>Seite validiert beim W3C ohne Warnung und Fehler</li>
+	<li>Verwendung von header(), z.B. HTTP Status Code 404 für nicht erreichbare Inhalte</li>
 	</ol>
 </div>
 <?php
@@ -199,7 +220,10 @@ Es wäre ja gelacht, wenn das nicht geht...
 
 <aside class="boxshadow">-->
 <h2>Am Rande</h2>
-	<iframe src="login/login.html" name="login" id="loginframe"> 
+	<small>iFrame-Demo</small><br>
+	<small style="margin-left: 1em;"><a href="login/login.php" target="loginframe">Login</a></small>
+	<small style="margin-left: 1em;"><a href="login/eintragen.php" target="loginframe">Registrieren</a></small>
+	<iframe src="login/login.html" name="loginframe" id="loginframe"> 
 		 <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen: Sie können die eingebettete Seite über den folgenden Verweis aufrufen: <a href="http://wiki.selfhtml.org/wiki/Startseite">SELFHTML</a> </p>
 	</iframe>	
 <h3>Quellen</h3>

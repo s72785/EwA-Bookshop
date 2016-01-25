@@ -1,12 +1,18 @@
-<!doctype html><html><head><title>Bookshop - Login</title><meta charset="UTF-8">
+<!--<!doctype html><html><head><title>Bookshop - Login</title><meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/style.css">
 <style>
 </style>
 </head><body>
-
-<div>
+-->
+<div id="login">
 <fieldset form="login-form"><legend>Login</legend>
-<form name="login-form" id="login-form" action="login.php" method="post">
+<form name="login-form" id="login-form" action="<?
+	if( !isset($caller) ) {
+		echo('login.php');
+	} else {
+		echo('?show=login');
+	}
+?>" method="post">
 	<label for="username">Dein Username</label>
 	<input type="text" size="14" maxlength="50"
 	name="username" id="username"><br>
@@ -18,7 +24,7 @@
 	<input type="submit" value="Login">
 </form>
 </fieldset>
-<small style="margin-left: 3em;"><a href="eintragen.html">Registrieren</a></small>
 </div>
-
+<!--
 </body></html>
+-->
