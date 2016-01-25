@@ -124,6 +124,10 @@ ob_start();
 if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 
 	switch( $_GET['show'] ){
+		case 'details':
+			//print_r();
+			include_once('shop/details.php'/*.'?id='.$_GET['id']/**/);
+		break;
 		case 'about':
 			include_once('about/g05.php');
 		break;
@@ -131,12 +135,12 @@ if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 			header('location: /ewa/g05/admin/');
 		break;
 		case 'shop':
-//			include_once('suche.php');
-			echo('
+			include_once('shop/suche.php');
+/*			echo('
 <iframe src="shop/suche.php" name="suche" id="suchframe" style="display: block; width: 100%;height:100%;border:0;overflow:hidden;">  
 	<p>Ihr Browser kann leider keine eingebetteten Frames anzeigen: Sie können die eingebettete Seite über den folgenden Verweis aufrufen: <a href="http://wiki.selfhtml.org/wiki/Startseite">SELFHTML</a> </p>
 </iframe>	
-			');
+			');/**/
 		break;
 	}
 

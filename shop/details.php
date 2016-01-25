@@ -25,7 +25,7 @@ while ( $row = mysql_fetch_array( $result ) ) {
 	. '<td>' . utf8_encode( $row['autor'] ) . '</td>'
 	. '</tr>' );
 }
-echo( '</table>' );  
+echo( '</table><small><a href="">zurück</a></small>' );  
 
 mysql_free_result($result);
 

@@ -1,5 +1,5 @@
 <?php
-
+//todo: auf einbindung prüfen
 echo( '<!doctype html><html><head><title>Bookshop - Übersicht</title><meta charset="UTF-8"></head><body>' );
 
 /* access data in config file (data not inside repo) */

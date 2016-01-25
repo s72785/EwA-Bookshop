@@ -1,6 +1,7 @@
 <?php
+	$standalone=(strpos($_SERVER["PHP_SELF"], 'ergebnisse.php'));
 /* access data in config file (data not inside repo) */
-include_once( 'dbconf.php' );
+include_once( (($standalone)?'':'shop/').'dbconf.php' );
 
 $dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
 	die( 'Keine Verbindung möglich: ' . mysql_error() );
@@ -24,7 +25,9 @@ echo( '<table border="1">' );
 while ( $row = mysql_fetch_array( $result ) ) {
 	echo( '<tr>'
 	. '<td>' . utf8_encode( $row['barcode'] ) . '</td>'
-	. '<td><h2><a href="details.php?id=' . utf8_encode( $row['id'] ) . '">' . utf8_encode( $row['titel'] ) . '</a></h2></td>'
+	. '<td><h2><a href="'
+.($standalone?'details.php?':'?show=details&amp;')
+.'id='.utf8_encode( $row['id'] ) . '">' . utf8_encode( $row['titel'] ) . '</a></h2></td>'
 	. '<td>' . utf8_encode( $row['autor'] ) . '</td>'
 	. '</tr>' );
 }
