@@ -26,7 +26,7 @@ $refresh=15;
 	</head>
 	<body>
 <?php
-	echo('<h1>Vielen Dank - Seite <a href="../">lädt nach '.$refresh.' Sekunden neu</a>.</h1>');
+	echo('<h1>Vielen Dank - Seite <a href="/ewa/g05/?show=success">lädt nach '.$refresh.' Sekunden neu</a>.</h1>');
 	//////////////////////////////////////////////////////////////
 	// Author: Michael Heydeck, 04.12.2013
 	
