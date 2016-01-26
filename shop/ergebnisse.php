@@ -37,8 +37,12 @@ if( $result === FALSE ) {
 echo( '<form action="'.((!isset($caller)||!in_array($caller,$callers))?'berechnung.php':'?show=berechnung').'" method="post">
 <table border="1"><tr><th>Gewünschte Anzahl</th><th>ISBN</th><th>Preis</th><th>Titel</th><th>Autor</th></tr>' );
 while ( $row = mysql_fetch_array( $result ) ) {
+	$anzahl=0;
+	if( isset($_SESSION["artikel"][$row['barcode']]) ){
+		$anzahl=$_SESSION["artikel"][$row['barcode']];
+	}
 	echo( '<tr>'
-	. '<td><input size="4" type="text" name="artikel['.$row['barcode'].']"></td><td>' . utf8_encode( $row['barcode'] ) . '</td>'
+	. '<td><input size="4" type="text" name="artikel['.$row['barcode'].']" value='.$anzahl.' ></td><td>' . utf8_encode( $row['barcode'] ) . '</td>'
 	. '<td>' . utf8_encode( $row['netto'] ) . '</td>'
 	. '<td><h2><a href="'
 .($standalone?'details.php?':'?show=details&amp;')
