@@ -1,20 +1,7 @@
 <?php
 @session_start();
-
-$artikel[0]["Name"]="Self-PHP";
-$artikel[0]["Preis"]="25.40";
-$artikel[0]["Gewicht"]="800";
-$artikel[0]["ISBN"]="76e5453800";
-
-$artikel[1]["Name"]=" PHP-Referenz";
-$artikel[1]["Preis"]="18.00";
-$artikel[1]["Gewicht"]="600";
-$artikel[1]["ISBN"]="76e54545330";
-
-$artikel[2]["Name"]="PHP-Kochbuch";
-$artikel[2]["Preis"]="18.00";
-$artikel[2]["Gewicht"]="1300";
-$artikel[2]["ISBN"]="76e6345654500";
+/* access data in config file (data not inside repo) */
+include_once( 'dbconf.php' );
 
 $refresh=15;
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -48,14 +35,35 @@ $refresh=15;
 	$OrderPosition = array();
 	$summe=0;
 	if ( !empty( $_SESSION["artikel"] ) ){
+		
+		$dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
+			die( 'Keine Verbindung möglich: ' . mysql_error() );
+		mysql_select_db( $dbname );
+
+
 		$summe=0;
 		foreach( $_SESSION["artikel"] as $key => $val ) {
 			if (!empty($val))
 			{
-				$summe += $artikel[$key]["Preis"] * $val;
-				$OrderPosition[] = array("ISBN" => $artikel[$key]["ISBN"], "Quantity" => $val);			
+				$sql = 'SELECT bu.id AS id, barcode, netto, gewicht, titel, au.name AS autor FROM 
+						buecher AS bu JOIN autor AS au ON au.id = bu.autorid
+						JOIN verlag AS ve ON ve.id = bu.verlagsid
+						where (
+							barcode = \'' . mysql_escape_string( $key ) . ' \'
+						)';
+				//echo $sql;
+				$result = mysql_query( $sql );
+				if( $result === FALSE ) {
+					die( mysql_error() ); // TODO: better error handling
+				}
+
+				$row = mysql_fetch_array( $result );
+		
+				$summe += $row["netto"] * $val;
+				$OrderPosition[] = array("ISBN" => $row["barcode"], "Quantity" => $val);			
 			}
 		}
+		
 	}
 
 	try

@@ -1,5 +1,7 @@
 <?php
 @session_start();
+$standalone=(strpos($_SERVER["PHP_SELF"], 'ergebnisse.php'));
+include_once( (($standalone)?'':'shop/').'dbconf.php' );
 /* Übung: U5_php_vp1ok.pdf */
 
 /* 4. Erstellen Sie ein HTML- Bestellformular (bestellg0.html) mit drei Eingabefeldern
@@ -54,11 +56,34 @@ $vat = 0.07; //7% USt auf Bücher
 if ( !empty( $_POST["artikel"] ) ){
 	$_SESSION['artikel'] = $_POST["artikel"];
 
+
+$dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
+	die( 'Keine Verbindung möglich: ' . mysql_error() );
+mysql_select_db( $dbname );
+
+
 	foreach( $_POST["artikel"] as $key => $val ) {
-		if (!empty($val))
+		
+		
+		$sql = 'SELECT bu.id AS id, barcode, netto, gewicht, titel, au.name AS autor FROM 
+						buecher AS bu JOIN autor AS au ON au.id = bu.autorid
+						JOIN verlag AS ve ON ve.id = bu.verlagsid
+						where (
+							barcode = \'' . mysql_escape_string( $key ) . ' \'
+						)';
+		//echo $sql;
+		$result = mysql_query( $sql );
+		if( $result === FALSE ) {
+			die( mysql_error() ); // TODO: better error handling
+		}
+
+		$row = mysql_fetch_array( $result );
+ 
+		//echo $key . "<br />";
+		if (!empty($row["netto"]))
 		{
-			$summe += $artikel[$key]["Preis"] * $val;
-			$gesamt_gewicht += $artikel[$key]["Gewicht"] * $val;	
+			$summe += $row["netto"] * $val;
+			$gesamt_gewicht += $row["gewicht"] * $val;	
 		}
 	}
 	

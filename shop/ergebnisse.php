@@ -8,7 +8,7 @@ $dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
 mysql_select_db( $dbname );
 $suche = (isset($_POST['suche'])) ? $_POST['suche'] : '' ;
 
-$sql = 'SELECT bu.id AS id, barcode, titel, au.name AS autor FROM 
+$sql = 'SELECT bu.id AS id, barcode, titel, netto, au.name AS autor FROM 
 						buecher AS bu JOIN autor AS au ON au.id = bu.autorid
 						JOIN verlag AS ve ON ve.id = bu.verlagsid
 						where (
@@ -35,10 +35,11 @@ if( $result === FALSE ) {
 //~ 
 //~ -->
 echo( '<form action="'.((!isset($caller)||!in_array($caller,$callers))?'berechnung.php':'?show=berechnung').'" method="post">
-<table border="1"><tr><th>Gewünschte Anzahl</th><th>ISBN</th><th>Titel</th><th>Autor</th></tr>' );
+<table border="1"><tr><th>Gewünschte Anzahl</th><th>ISBN</th><th>Preis</th><th>Titel</th><th>Autor</th></tr>' );
 while ( $row = mysql_fetch_array( $result ) ) {
 	echo( '<tr>'
-	. '<td><input size="4" type="text" name="'.$row['barcode'].'"></td><td>' . utf8_encode( $row['barcode'] ) . '</td>'
+	. '<td><input size="4" type="text" name="artikel['.$row['barcode'].']"></td><td>' . utf8_encode( $row['barcode'] ) . '</td>'
+	. '<td>' . utf8_encode( $row['netto'] ) . '</td>'
 	. '<td><h2><a href="'
 .($standalone?'details.php?':'?show=details&amp;')
 .'id='.utf8_encode( $row['id'] ) . '">' . utf8_encode( $row['titel'] ) . '</a></h2></td>'
