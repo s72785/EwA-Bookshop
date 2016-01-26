@@ -141,6 +141,7 @@ if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 	$caller='index.php';
 	switch( $_GET['show'] ){
 		case 'shop':
+			echo( '<h3>Angebot</h3>' );
 			include_once('shop/suche.php');
 /*			echo('
 <iframe src="shop/suche.php" name="suche" id="suchframe" style="display: block; width: 100%;height:100%;border:0;overflow:hidden;">  
@@ -148,14 +149,20 @@ if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 </iframe>	
 			');/**/
 		break;
+		case 'success':
+			echo( '<h3>Bestellung erfolgreich übermittelt</h3>' );
+		break;
 		case 'berechnung':
-			include_once('php/berechnung.php');
+			echo( '<h3>Bestellübersicht</h3>' );
+			include_once('php/'.$_GET['show'].'.php');
 		break;
 		case 'details':
 			//print_r();
+			echo( '<h3>Artikeldetails</h3>' );
 			include_once('shop/details.php'/*.'?id='.$_GET['id']/**/);
 		break;
 		case 'ergebnisse':
+			echo( '<h3>Artikel</h3>' );
 			include_once('shop/'.$_GET['show'].'.php');
 		break;
 		case 'about':
