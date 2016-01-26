@@ -1,5 +1,5 @@
 <?php
-session_start();
+@session_start();
 /* Übung: U5_php_vp1ok.pdf */
 
 /* 4. Erstellen Sie ein HTML- Bestellformular (bestellg0.html) mit drei Eingabefeldern
@@ -26,8 +26,8 @@ unter Annahme des billigsten DHL-Paketes bis max. 20 kg (sieh www.post.de).
 Bei einem Gesamtpreis über 100 € sollen die Versandkosten erlassen werden.
  * */
 
-include('versand.php');
-include('werbung.php');
+include(((!isset($caller)||!in_array($caller,$callers))?'':'php/').'versand.php');
+include(((!isset($caller)||!in_array($caller,$callers))?'':'php/').'werbung.php');
 
 //print_r($_POST);
 $artikel[0]["Name"]="Self-PHP";
@@ -84,7 +84,7 @@ echo "<hr />\n";
 echo "Endsummer:". ( $summe * ( 1 + $vat ) ) . "<br />\n";
 echo "Gesamtgewicht:".$gesamt_gewicht . "<hr />\n";
 
-include_once("../shop/getDeliveryTime.php");
+include_once(((!isset($caller)||!in_array($caller,$callers))?'../':'').'shop/getDeliveryTime.php');
 echo " Liefertage <hr />";
 /*print_R($werbung);
 echo $_POST["werbung"];*/
@@ -100,7 +100,7 @@ Bestellung hinzu. .
  * */
 
 ?>
-<form type="post" action="../shop/doOrder.php">
+<form type="post" action="<?php echo( ((!isset($caller)||!in_array($caller,$callers))?'../':'').'shop/doOrder.php'); ?>">
 <input type="submit" value="bestellen">
 
 </form>

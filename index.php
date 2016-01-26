@@ -148,6 +148,9 @@ if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 </iframe>	
 			');/**/
 		break;
+		case 'berechnung':
+			include_once('php/berechnung.php');
+		break;
 		case 'details':
 			//print_r();
 			include_once('shop/details.php'/*.'?id='.$_GET['id']/**/);
