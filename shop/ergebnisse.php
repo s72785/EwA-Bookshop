@@ -43,7 +43,7 @@ while ( $row = mysql_fetch_array( $result ) ) {
 	}
 	echo( '<tr>'
 	. '<td><input size="4" type="text" name="artikel['.$row['barcode'].']" value='.$anzahl.' ></td><td>' . utf8_encode( $row['barcode'] ) . '</td>'
-	. '<td>' . utf8_encode( $row['netto'] ) . '</td>'
+	. '<td align="right">' . utf8_encode( number_format($row['netto'], 2, ',', '.') ) . '&nbsp;€</td>'
 	. '<td><h2><a href="'
 .($standalone?'details.php?':'?show=details&amp;')
 .'id='.utf8_encode( $row['id'] ) . '">' . utf8_encode( $row['titel'] ) . '</a></h2></td>'
