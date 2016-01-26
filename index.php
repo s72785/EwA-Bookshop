@@ -2,6 +2,10 @@
 ob_start();
 session_start();
 $callers=array('index.php','aside');
+
+if ( isset($_GET['debug']) && $_GET['debug']=='session' ) {
+	print_r($_SESSION);
+}
 ?>
 <!doctype html>
 <html manifest="cache.appcache" lang="de-de">
@@ -137,6 +141,10 @@ if ( isset($_GET['show']) && $_GET['show']=='shop' ) {
 <?php
 
 if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
+
+	if(!isset($_SESSION['userid']) && !in_array($_GET['show'], array('shop','eintragen','ergebnisse')) ) {
+		$_GET['show']='login';
+	}
 
 	$caller='index.php';
 	switch( $_GET['show'] ){
