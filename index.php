@@ -235,7 +235,10 @@ Es wäre ja gelacht, wenn das nicht geht...
 <aside class="boxshadow">-->
 <h2>Am Rande</h2><?php
 	$caller='aside';
-	//~ include_once('login/login.php');
+	
+	if ( ( !isset($_SESSION['userid']) || empty($_SESSION['userid']) ) && ( !isset($_GET['show']) || $_GET['show']!='eintragen' ) ) {
+		include_once('login/login.php');
+	}
 ?><!--	<small>iFrame-Demo</small><br>
 	<small style="margin-left: 1em;"><a href="login/login.php" target="loginframe">Login</a></small>
 	<small style="margin-left: 1em;"><a href="login/eintragen.php" target="loginframe">Registrieren</a></small>

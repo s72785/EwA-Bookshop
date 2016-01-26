@@ -1,16 +1,16 @@
 <?php
 	ob_start();	//start caching of output
-	
-	if(!isset($caller)||$caller!='index.php'){
+	if(!isset($caller)||!in_array($caller,$callers)){
 		echo( '<!doctype html><html><head><title>Bookshop - Login</title><meta charset="UTF-8"></head><body>' );
 	}
 
 	/* access data in config file (data not inside repo) */
-	include_once( ((!isset($caller)||$caller!='index.php')?'.':'') .'./shop/dbconf.php' );
-	include_once( ((!isset($caller)||$caller!='index.php')?'.':'') .'./login/functions.php' );
+	include_once( ((!isset($caller)||!in_array($caller,$callers))?'.':'') .'./shop/dbconf.php' );
+	include_once( ((!isset($caller)||!in_array($caller,$callers))?'.':'') .'./login/functions.php' );
 
 	if ( isset($_SESSION['userid']) && !empty($_SESSION['userid']) ) {
-		echo( 'Login erfolgreich.<br><a href="'.((!isset($caller)||$caller!='index.php')?'bestellformular.php':'?show=shop').'">Geschützter Bereich</a>' );
+		//~ echo( 'Login erfolgreich.<br><a href="'.((!isset($caller)||!in_array($caller,$callers))?'bestellformular.php':'?show=shop').'">Geschützter Bereich</a>' );
+		header('location: '.((!isset($caller)||!in_array($caller,$callers))?'../shop/suche.php':'?show=shop'));
 	} elseif (empty($_POST['username']) &&  empty($_POST['username'])) {
 		echo('<div id="login">
 <fieldset form="login-form"><legend>Login</legend>
@@ -36,7 +36,7 @@
 </div>'
 		);
 		echo('<small style="margin-left: 3em;"><a href="');
-		if ( !isset($caller) || $caller!='index.php' ) {
+		if (!isset($caller)||!in_array($caller,$callers)) {
 			echo('eintragen.php">Registrieren');
 		} else {
 			echo('?show=eintragen">Registrieren');
@@ -74,15 +74,15 @@
 		) {
 			$_SESSION['username'] = $username;
 			$_SESSION['userid'] = $row->UserID;
-			header('Location: '.((!isset($caller)||$caller!='index.php')?'./login.php':'?show=login'));
+			header('Location: '.((!isset($caller)||!in_array($caller,$callers))?'./login.php':'?show=login'));
 		} else {
-			header('Location: '.((!isset($caller)||$caller!='index.php')?'./login.php':'?show=login').'#wrong_password'); /* Redirect browser */
+			header('Location: '.((!isset($caller)||!in_array($caller,$callers))?'./login.php':'?show=login').'#wrong_password'); /* Redirect browser */
 			echo( 'Benutzername und/oder Passwort waren falsch. <a href="login.php">Login</a>' );
 		}
 		mysql_close( $verbindung ); //close connections
 	}
 
-	if(!isset($caller)||$caller!='index.php'){
+	if(!isset($caller)||!in_array($caller,$callers)){
 		echo( '</body></html>' );
 	}
 	ob_end_flush();
