@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+$callers=array('index.php','aside');
 ?>
 <!doctype html>
 <html manifest="cache.appcache" lang="de-de">
@@ -18,6 +19,11 @@ session_start();
 	<!--link type="text/plain" rel="robots" href="http://ivm108.informatik.htw-dresden.de/ewa/g05/robots.txt"-->
 	<meta name="robots" content="index,follow">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+<?php
+if ( isset($_GET['show']) && $_GET['show']=='shop' ) {
+	?><script src="js/jquery-2.1.4.min.js"></script><?php
+}
+?>
 </head><body>
 
 <header class="boxshadow">
@@ -34,7 +40,7 @@ session_start();
 	<ul>
 		<li><a href="?show=shop">Buchshop</a></li><!-- shop/ -->
 		<li><a href="<?php
-		if ( ( isset($_GET['show']) &&$_GET['show']!='login') || !isset($_SESSION['userid']) || empty($_SESSION['userid']) ) {
+		if ( !isset($_SESSION['userid']) || empty($_SESSION['userid']) ) {
 			echo( 'http://ivm108.informatik.htw-dresden.de/ewa/g05/?show=login">Login</a></li>'
 				.'<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/?show=eintragen">Registrieren'
 			);
@@ -152,6 +158,10 @@ if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 		case 'about':
 			include_once('about/g05.php');
 		break;
+		case 'logout':
+			session_destroy();
+			header('location: /ewa/g05/');
+		break;
 		case 'login':
 		case 'eintragen':
 			include_once('login/'.$_GET['show'].'.php');
@@ -223,8 +233,10 @@ Es wäre ja gelacht, wenn das nicht geht...
 
 
 <aside class="boxshadow">-->
-<h2>Am Rande</h2>
-<!--	<small>iFrame-Demo</small><br>
+<h2>Am Rande</h2><?php
+	$caller='aside';
+	//~ include_once('login/login.php');
+?><!--	<small>iFrame-Demo</small><br>
 	<small style="margin-left: 1em;"><a href="login/login.php" target="loginframe">Login</a></small>
 	<small style="margin-left: 1em;"><a href="login/eintragen.php" target="loginframe">Registrieren</a></small>
 	<iframe src="login/login.html" name="loginframe" id="loginframe"> 
