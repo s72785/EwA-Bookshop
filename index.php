@@ -4,7 +4,9 @@ session_start();
 $callers=array('index.php','aside');
 
 if ( isset($_GET['debug']) && $_GET['debug']=='session' ) {
+	echo('<pre>');
 	print_r($_SESSION);
+	echo('</pre>');
 }
 ?>
 <!doctype html>
@@ -24,7 +26,7 @@ if ( isset($_GET['debug']) && $_GET['debug']=='session' ) {
 	<meta name="robots" content="index,follow">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
 <?php
-if ( isset($_GET['show']) && $_GET['show']=='shop' ) {
+if ( isset($_GET['show']) && in_array($_GET['show'],array('shop','berechnung')) ) {
 	?><script src="js/jquery-2.1.4.min.js"></script><?php
 }
 ?>
