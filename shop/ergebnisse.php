@@ -44,10 +44,11 @@ echo( '<form action="'.((!isset($caller)||!in_array($caller,$callers))?'berechnu
 while ( $row = mysql_fetch_array( $result ) ) {
 	$anzahl=0;
 	if( isset($_SESSION["artikel"][$row['barcode']]) ){
-		$anzahl=$_SESSION["artikel"][$row['barcode']];
+		$anzahl = $_SESSION["artikel"][$row['barcode']];
+		$anzahl = ( $anzahl < 0 ) ? 0 : $anzahl;
 	}
 	echo( '<tr>'
-	. '<td><input size="4" type="text" name="artikel['.$row['barcode'].']" value='.$anzahl.' ></td>'
+	. '<td><input size="4" type="text" class="anzahl" name="artikel['.$row['barcode'].']" value='.$anzahl.' ></td>'
 //	. '<td>' . utf8_encode( $row['barcode'] ) . '</td>'
 	. '<td><h2><a href="'
 .($standalone?'details.php?':'?show=details&amp;')
