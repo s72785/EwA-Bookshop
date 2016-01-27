@@ -142,7 +142,7 @@ if ( isset($_GET['show']) && $_GET['show']=='shop' ) {
 
 if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 
-	if(!isset($_SESSION['userid']) && !in_array($_GET['show'], array('shop','eintragen','ergebnisse')) ) {
+	if(!isset($_SESSION['userid']) && !in_array($_GET['show'], array('about','shop','eintragen','ergebnisse')) ) {
 		$_GET['show']='login';
 	}
 
