@@ -256,6 +256,8 @@ Es wäre ja gelacht, wenn das nicht geht...
 	
 	if ( ( !isset($_SESSION['userid']) || empty($_SESSION['userid']) ) && ( !isset($_GET['show']) || $_GET['show']!='eintragen' ) ) {
 		include_once('login/login.php');
+	} elseif ( isset($_SESSION['aside']) ) {
+		echo( $_SESSION['aside'] );
 	}
 ?><!--	<small>iFrame-Demo</small><br>
 	<small style="margin-left: 1em;"><a href="login/login.php" target="loginframe">Login</a></small>
