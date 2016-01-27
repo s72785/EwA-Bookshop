@@ -32,6 +32,7 @@ include(((!isset($caller)||!in_array($caller,$callers))?'':'php/').'versand.php'
 include(((!isset($caller)||!in_array($caller,$callers))?'':'php/').'werbung.php');
 
 //print_r($_POST);
+
 $artikel[0]["Name"]="Self-PHP";
 $artikel[0]["Preis"]="25.40";
 $artikel[0]["Gewicht"]="800";
@@ -53,6 +54,7 @@ $summe=0;
 $gesamt_gewicht=0;
 $vat = 0.07; //7% USt auf Bücher
 
+	$steuer=0;
 if ( !empty( $_POST["artikel"] ) ){
 	$_SESSION['artikel'] = $_POST["artikel"];
 
@@ -61,12 +63,12 @@ $dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
 	die( 'Keine Verbindung möglich: ' . mysql_error() );
 mysql_select_db( $dbname );
 
-
 	foreach( $_POST["artikel"] as $key => $val ) {
 		
 		
-		$sql = 'SELECT bu.id AS id, barcode, netto, gewicht, titel, au.name AS autor FROM 
-						buecher AS bu JOIN autor AS au ON au.id = bu.autorid
+		$sql = 'SELECT bu.id AS id, barcode, netto, gewicht, titel, au.name AS autor
+						FROM buecher AS bu
+						JOIN autor AS au ON au.id = bu.autorid
 						JOIN verlag AS ve ON ve.id = bu.verlagsid
 						where (
 							barcode = \'' . mysql_escape_string( $key ) . ' \'
@@ -79,41 +81,36 @@ mysql_select_db( $dbname );
 
 		$row = mysql_fetch_array( $result );
  
-		//echo $key . "<br />";
-		if (!empty($row["netto"]))
-		{
+		//echo $key . "<br>";
+		if (!empty($row["netto"])) {
 			$summe += $row["netto"] * $val;
-			$gesamt_gewicht += $row["gewicht"] * $val;	
+			$steuer += $row["netto"] * $val * $vat;
+			$gesamt_gewicht += $row["gewicht"] * $val;
 		}
 	}
 	
 }
 
 $gewicht = $gesamt_gewicht/1000;
-echo "<hr />\n";
-echo "Zwischensummer:".$summe."<br />\n";
-
-foreach ($versand as $key => $val)
-{
-		if ($gewicht<=$key)
-		{
-			$versand = $val;
+$vkosten=0;
+foreach ($versand as $key => $val) {
+		if ( $gewicht <= $key ) {
+			$vkosten += $val;
 			break;
 		}
 }
 
-$summe += $versand;
-echo "Versandkosten:" . $versand . "\n";
 echo "<hr />\n";
-
-echo "Endsummer:". ( $summe * ( 1 + $vat ) ) . "<br />\n";
-echo "Gesamtgewicht:".$gesamt_gewicht . "<hr />\n";
-
+echo '<span style="width:9em;display:inline-block;">Zwischensummer</span><span style="width:3em;display:inline-block;text-align:right;">'. number_format($summe, 2, ',', '.') ."</span>€<br>\n";
+echo '<span style="width:9em;display:inline-block;">Versandkosten</span><span style="width:3em;display:inline-block;text-align:right;">' . number_format($vkosten, 2, ',', '.') . "</span>€<br>\n";
+echo '<span style="width:9em;display:inline-block;">Umsatzsteuer:</span><span style="width:3em;display:inline-block;text-align:right;">' . number_format($steuer, 2, ',', '.') . "</span>€<br>\n";
+echo "<hr>\n";
+echo '<span style="width:9em;display:inline-block;">Endsummer</span><span style="width:3em;display:inline-block;text-align:right;">'. number_format( ( $vkosten + $summe + $steuer ), 2, ',', '.') . "</span>€<br>\n";
+echo '<span style="width:9em;display:inline-block;">Gesamtgewicht</span><span style="width:3em;display:inline-block;text-align:right;">' .number_format(($gewicht), 3, ',', '.') . "</span>kg<hr>\n";
+echo '<span style="width:9em;display:inline-block;">Lieferzeit</span><span><span style="width:3em;display:inline-block;text-align:right;">';
 include_once(((!isset($caller)||!in_array($caller,$callers))?'../':'').'shop/getDeliveryTime.php');
-echo " Liefertage <hr />";
-/*print_R($werbung);
-echo $_POST["werbung"];*/
-echo "Fand Shop über: " . (!empty($werbung[$adpos])?$werbung[$adpos]:"keine Angaben") . "\n";
+
+echo '</span>Tage<hr><span style="width:9em;display:inline-block;">Fand Shop über</span>' . (!empty($werbung[$adpos])?$werbung[$adpos]:"keine Angaben") . "\n";
 
 /* 6. Zeigen Sie nach erfolgter Berechnung das Eingabeformular aus 4. erneut an und
 vermerken Sie die bereits ermittelten Preis und Gewichtsangaben als verborgene
@@ -125,7 +122,6 @@ Bestellung hinzu. .
  * */
 
 ?>
-<form type="post" action="<?php echo( ((!isset($caller)||!in_array($caller,$callers))?'../':'').'shop/doOrder.php'); ?>">
-<input type="submit" value="bestellen">
-
+<form type="post" action="<?php echo( ((!isset($caller)||!in_array($caller,$callers))?'../':'').'shop/DoOrder.php'); ?>">
+<input type="submit" value="Verbindlich bestellen">
 </form>
