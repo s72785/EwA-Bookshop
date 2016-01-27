@@ -58,14 +58,11 @@ $vat = 0.07; //7% USt auf Bücher
 if ( !empty( $_POST["artikel"] ) ){
 	$_SESSION['artikel'] = $_POST["artikel"];
 
-
-$dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
+	$dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
 	die( 'Keine Verbindung möglich: ' . mysql_error() );
-mysql_select_db( $dbname );
+	mysql_select_db( $dbname );
 
 	foreach( $_POST["artikel"] as $key => $val ) {
-		
-		
 		$sql = 'SELECT bu.id AS id, barcode, netto, gewicht, titel, au.name AS autor
 						FROM buecher AS bu
 						JOIN autor AS au ON au.id = bu.autorid
@@ -99,18 +96,22 @@ foreach ($versand as $key => $val) {
 			break;
 		}
 }
+$steuer += $vkosten * $vat;
 
-echo "<hr />\n";
-echo '<span style="width:9em;display:inline-block;">Zwischensummer</span><span style="width:3em;display:inline-block;text-align:right;">'. number_format($summe, 2, ',', '.') ."</span>€<br>\n";
-echo '<span style="width:9em;display:inline-block;">Versandkosten</span><span style="width:3em;display:inline-block;text-align:right;">' . number_format($vkosten, 2, ',', '.') . "</span>€<br>\n";
-echo '<span style="width:9em;display:inline-block;">Umsatzsteuer:</span><span style="width:3em;display:inline-block;text-align:right;">' . number_format($steuer, 2, ',', '.') . "</span>€<br>\n";
-echo "<hr>\n";
-echo '<span style="width:9em;display:inline-block;">Endsummer</span><span style="width:3em;display:inline-block;text-align:right;">'. number_format( ( $vkosten + $summe + $steuer ), 2, ',', '.') . "</span>€<br>\n";
-echo '<span style="width:9em;display:inline-block;">Gesamtgewicht</span><span style="width:3em;display:inline-block;text-align:right;">' .number_format(($gewicht), 3, ',', '.') . "</span>kg<hr>\n";
-echo '<span style="width:9em;display:inline-block;">Lieferzeit</span><span><span style="width:3em;display:inline-block;text-align:right;">';
+echo( "<hr />\n"
+	.'<span style="width:9em;display:inline-block;">Zwischensummer</span><span style="width:3em;display:inline-block;text-align:right;">'. number_format($summe, 2, ',', '.') ."</span>€<br>\n"
+	.'<span style="width:9em;display:inline-block;">Versandkosten</span><span style="width:3em;display:inline-block;text-align:right;">' . number_format($vkosten, 2, ',', '.') . "</span>€<br>\n"
+	.'<span style="width:9em;display:inline-block;">Umsatzsteuer:</span><span style="width:3em;display:inline-block;text-align:right;">' . number_format($steuer, 2, ',', '.') . "</span>€<br>\n"
+	."<hr>\n"
+	.'<span style="width:9em;display:inline-block;">Endsummer</span><span style="width:3em;display:inline-block;text-align:right;">'. number_format( ( $vkosten + $summe + $steuer ), 2, ',', '.') . "</span>€<br>\n"
+	.'<span style="width:9em;display:inline-block;">Gesamtgewicht</span><span style="width:3em;display:inline-block;text-align:right;">' .number_format(($gewicht), 3, ',', '.') . "</span>kg<hr>\n"
+	.'<span style="width:9em;display:inline-block;">Lieferzeit</span><span><span style="width:3em;display:inline-block;text-align:right;">'
+);
+
 include_once(((!isset($caller)||!in_array($caller,$callers))?'../':'').'shop/getDeliveryTime.php');
 
-echo '</span>Tage<hr><span style="width:9em;display:inline-block;">Fand Shop über</span>' . (!empty($werbung[$adpos])?$werbung[$adpos]:"keine Angaben") . "\n";
+echo '</span>Tage<hr><span style="width:9em;display:inline-block;">Fand Shop über</span>'
+	. (!empty($werbung[$adpos])?$werbung[$adpos]:"keine Angaben") . "\n";
 
 /* 6. Zeigen Sie nach erfolgter Berechnung das Eingabeformular aus 4. erneut an und
 vermerken Sie die bereits ermittelten Preis und Gewichtsangaben als verborgene
@@ -120,8 +121,60 @@ Bestellung hinzu. .
  * Zusatzaufgabe (6.) ist fail!
  * Verborgene Felder kann der Kunde manipulieren, deshalb rechnet man damit nicht weiter
  * */
+$plz=(isset($_POST['plz']))?$_POST['plz']:'01069';//std:dresden
+$blz=(isset($_POST['blz']))?$_POST['blz']:'85050300';//std:sparkasse dd
+$ccn=(isset($_POST['ccn']))?$_POST['ccn']:'41111';//std:irgendwas
+$ctr=/*(isset($_POST['ctr']))?$_POST['ctr']:*/'Deutschland';//std:irgendwas
 
-?>
-<form type="post" action="<?php echo( ((!isset($caller)||!in_array($caller,$callers))?'../':'').'shop/DoOrder.php'); ?>">
+// action="'. ( ((!isset($caller)||!in_array($caller,$callers))?'../':'').'shop/DoOrder.php').'"
+echo( '<form type="post">
+<div>
+<label for="plz">PLZ</label><input type="text" size="5" name="plz" id="plz" value="'.$plz.'">
+</div><div>
+<label for="ctr">Land</label><input type="text" size="32" name="ctr" id="plz" disabled value="'.$ctr.'">
+</div><div>
+<label for="blz">BLZ</label><input type="text" size="8" name="blz" id="blz" value="'.$blz.'"><a target="_blank" href="http://ivm108.informatik.htw-dresden.de/ewa/g05/ws/client2.php">Prüfen der BLZ</a>
+</div><div>
+<label for="ccn">Kreditkarte</label><input type="text" size="32" name="ccn" id="ccn" value="'.$ccn.'"><a target="_blank" href="http://ivm108.informatik.htw-dresden.de/ewa/g05/ws/client2.php">Prüfen der Kreditkartennummer</a>
+</div>
 <input type="submit" value="Verbindlich bestellen">
 </form>
+<script type="text/javascript">
+
+	function testStr( tString, type )
+	{
+		switch (type) {
+			case "plz":
+				return !(tString.match(/^[0-9]{5}$/))? false:true;   
+			break;
+			case "blz":
+				return !(tString.match(/^[0-9]{8}$/))? false:true;   
+			break;
+			default:
+				return !(tString.match(/([a-z0-9.,;:öäüß _-])/gi))? false:true;
+		}
+	}
+
+	$("#plz").keyup(function(){
+		$e=$("#plz");
+		$bg="#f00";
+		if ( testStr( $e.val(), "plz" ) ) {
+			$bg="#0f0";
+		}
+		$e.css("background-color", $bg)
+	});
+
+	$("#blz").keyup(function(){
+		var k="blz";
+		$e=$("#"+k);
+		$bg="#f00";
+		if ( testStr( $e.val(), k ) ) {
+			$bg="#0f0";
+		}
+		$e.css("background-color", $bg)
+	});
+
+ </script>
+');
+
+?>
