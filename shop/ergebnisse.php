@@ -35,19 +35,25 @@ if( $result === FALSE ) {
 //~ 
 //~ -->
 echo( '<form action="'.((!isset($caller)||!in_array($caller,$callers))?'berechnung.php':'?show=berechnung').'" method="post">
-<table border="1"><tr><th>Gewünschte Anzahl</th><th>ISBN</th><th>Preis</th><th>Titel</th><th>Autor</th></tr>' );
+<table border="1"><tr>'.'<th>Gewünschte Anzahl</th>'
+//.'<th>ISBN</th>'
+.'<th>Titel</th>'
+.'<th>Autor</th>'
+.'<th>Einzelpreis exkl. USt</th>'
+.'</tr>' );
 while ( $row = mysql_fetch_array( $result ) ) {
 	$anzahl=0;
 	if( isset($_SESSION["artikel"][$row['barcode']]) ){
 		$anzahl=$_SESSION["artikel"][$row['barcode']];
 	}
 	echo( '<tr>'
-	. '<td><input size="4" type="text" name="artikel['.$row['barcode'].']" value='.$anzahl.' ></td><td>' . utf8_encode( $row['barcode'] ) . '</td>'
-	. '<td align="right">' . utf8_encode( number_format($row['netto'], 2, ',', '.') ) . '&nbsp;€</td>'
+	. '<td><input size="4" type="text" name="artikel['.$row['barcode'].']" value='.$anzahl.' ></td>'
+//	. '<td>' . utf8_encode( $row['barcode'] ) . '</td>'
 	. '<td><h2><a href="'
 .($standalone?'details.php?':'?show=details&amp;')
 .'id='.utf8_encode( $row['id'] ) . '">' . utf8_encode( $row['titel'] ) . '</a></h2></td>'
 	. '<td>' . utf8_encode( $row['autor'] ) . '</td>'
+	. '<td align="right">' . utf8_encode( number_format($row['netto'], 2, ',', '.') ) . '&nbsp;€</td>'
 	. '</tr>' );
 }
 echo( '</table><input type="submit" value="Bestellen"><select name="werbung">
