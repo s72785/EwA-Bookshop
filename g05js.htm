@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <script src="./js/jquery-2.1.4.min.js"></script>
 </head>
-    <body>   
+    <body>
 	<a href="javascript:history.back()">Zurück</a>
 	<div onmouseover="mausdrueber(this)" onmouseout="mausweg(this)"><h3>Ich bin eine Überschrift</h3></div>
 	<p>Fenstergroesse verändert <span id="demo">0</span> mal.</p>
@@ -13,20 +13,18 @@
 	<script>
 	alert("Willkommen bei der Javascript-Demo von Gruppe 05!");
 
-	 
-
 	function mausdrueber(ueberschrift){
 
 		 ueberschrift.innerHTML = "MAUS darüber";
 	}
-	
-	
+
+
 	function mausweg(ueberschrift){
 
 		 ueberschrift.innerHTML = "MAUS weg";
 	}
-	
-	
+
+
 	window.addEventListener("resize", neueGroesse);
 
 	var x = 0;
@@ -35,11 +33,11 @@
 		document.getElementById("demo").innerHTML = txt;
 	}
 
-	var neueFenster = document.getElementById('neueFenster'); 
+	var neueFenster = document.getElementById('neueFenster');
 	neueFenster.onclick = function() {
-		window.open('g05js.htm', 'testMyOpener', 'width='+screen.width/2+',height='+screen.height/2+''); 
+		window.open('g05js.htm', 'testMyOpener', 'width='+screen.width/2+',height='+screen.height/2+'');
 	}
-	
+
 	</script>
 	<div>Ihre Bildschirmauflösung: <script type="text/javascript">document.write(screen.width + ' x ' + screen.height);</script></div>
 	<div>Ihre Festerauflösung innen: <script type="text/javascript">document.write(window.innerWidth + ' x ' +  window.innerHeight);</script></div>
@@ -48,12 +46,11 @@
 	<div> <form action="demo_form.asp">
 		Anzahl: <input class="rechner" type="text" name="anzahl" id="anzahl" value="0"><br>
 		Nettopreis: <input class="rechner" type="text" name="netto" id="netto" value="0"><br>
-		Mwst: <input class="rechner" readonly="readonly" type="text" name="mwst" id="mwst" value="1.19">%<br>
+		Mwst: <input class="rechner" readonly="readonly" type="text" name="mwst" id="mwst" value="19">%<br>
 		Netto gesamt: <input readonly="readonly" type="text" name="ngesamt" id="ngesamt"><br>
 		Brutto gesamt: <input readonly="readonly" type="text" id="bgesamt" name="bgesamt"><br>
-</form> 
+</form>
 	<script>
-	
 
 	function check(elm){
 			var intRegex = /^\d+$/;
@@ -63,19 +60,17 @@
 			   alert('Ungültige Eingabe');
 			   elm.value = "0";
 			}
-	
+
 	}
 	$(".rechner").change(
 		function(){
-		
 
-			
 			check($('#anzahl')[0]);
 			check($('#netto')[0]);
-			
+
 			$('#ngesamt')[0].value = $('#anzahl')[0].value * $('#netto')[0].value;
-			$('#bgesamt')[0].value = $('#ngesamt')[0].value * $('#mwst')[0].value;
-			
+			$('#bgesamt')[0].value = $('#ngesamt')[0].value * ($('#mwst')[0].value / 100 + 1);
+
 		}
 	);
 	</script>
