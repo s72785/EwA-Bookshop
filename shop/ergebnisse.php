@@ -1,5 +1,5 @@
 <?php
-	$standalone=(strpos($_SERVER["PHP_SELF"], 'ergebnisse.php'));
+	$standalone=(strpos($_SERVER["PHP_SELF"], 'ergebnisse.php')!=='');
 /* access data in config file (data not inside repo) */
 include_once( (($standalone)?'':'shop/').'dbconf.php' );
 
@@ -8,7 +8,7 @@ $dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
 mysql_select_db( $dbname );
 $suche = (isset($_POST['suche'])) ? $_POST['suche'] : '' ;
 
-$sql = 'SELECT bu.id AS id, barcode, titel, netto, au.name AS autor FROM 
+$sql = 'SELECT bu.id AS id, barcode, titel, ve.name AS verlag, netto, au.name AS autor FROM 
 						buecher AS bu JOIN autor AS au ON au.id = bu.autorid
 						JOIN verlag AS ve ON ve.id = bu.verlagsid
 						where (
@@ -39,6 +39,7 @@ echo( '<form action="'.((!isset($caller)||!in_array($caller,$callers))?'berechnu
 //.'<th>ISBN</th>'
 .'<th>Titel</th>'
 .'<th>Autor</th>'
+.'<th>Verlag</th>'
 .'<th>Einzelpreis exkl. USt</th>'
 .'</tr>' );
 while ( $row = mysql_fetch_array( $result ) ) {
@@ -54,6 +55,7 @@ while ( $row = mysql_fetch_array( $result ) ) {
 .($standalone?'details.php?':'?show=details&amp;')
 .'id='.utf8_encode( $row['id'] ) . '">' . utf8_encode( $row['titel'] ) . '</a></h2></td>'
 	. '<td>' . utf8_encode( $row['autor'] ) . '</td>'
+	. '<td>' . utf8_encode( $row['verlag'] ) . '</td>'
 	. '<td align="right">' . utf8_encode( number_format($row['netto'], 2, ',', '.') ) . '&nbsp;€</td>'
 	. '</tr>' );
 }
