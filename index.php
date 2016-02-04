@@ -119,10 +119,10 @@ if ( isset($_GET['show']) && in_array($_GET['show'],array('shop','berechnung')) 
  				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/xml/book.xml" title="Lösung zu XML-Aufgabe">XML inkl. DTD</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/xml/xml.php" title="Alternativ-Lösung zu XML-Aufgabe">XML Reader</a>
  				</li>
 				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="PHP–Aufgaben">4</a>
- 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/shop/suche.php" title="Lösung zu Aufgabe 4a">Suche</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/login/eintragen.html" title="Lösung zu Aufgabe 4b">Registrierung</a>
+ 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/shop/suche.php" title="Lösung zu Aufgabe 4a">Suche</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/login/eintragen.php" title="Lösung zu Aufgabe 4b">Registrierung</a>
  				</li>
 				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="Javascript und RIA">5</a>
-				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 5a">Bestelldaten</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/" title="Lösung zu Aufgabe 5b">Kataloglistenanzeige</a>
+				- <a title="Lösung zu Aufgabe 5a">Bestelldaten</a> - <a title="Lösung zu Aufgabe 5b">Kataloglistenanzeige</a>
  				</li>
 				<li><a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/daten/checkliste-v1.pdf" title="Webservice">6</a>
 				- <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/ws/" title="Lösung zu Aufgabe 6a">KK-Test</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/ws/client.php" title="Lösung zu Aufgabe 6b">KK-Check</a> - <a href="http://ivm108.informatik.htw-dresden.de/ewa/g05/ws/client2.php" title="Lösung zu Aufgabe 6c">BLZ-Datenermittlung</a>
