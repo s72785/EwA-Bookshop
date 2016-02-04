@@ -161,6 +161,17 @@ if ( isset( $_GET['show'] ) && !empty( $_GET['show'] ) ) {
 		break;
 		case 'success':
 			echo( '<h3>Bestellung erfolgreich übermittelt</h3>' );
+			if( isset( $_SESSION['artikel'] ) ) {
+				//todo: bestellung ausgeben; EMail versenden .. blah
+				//~ echo('<pre>');
+				//~ print_r($_SESSION['artikel']);
+				//~ echo('</pre>');
+				unset($_SESSION['artikel']);
+				echo( 'Warenkorb geleert.' );
+			} else {
+				echo( 'Fehler: Warenkorb nicht gefunden; Ursache bei Session denkbar.' );
+			}
+			
 		break;
 		case 'berechnung':
 			echo( '<h3>Bestellübersicht</h3>' );

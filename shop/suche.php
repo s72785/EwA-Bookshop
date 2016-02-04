@@ -51,6 +51,47 @@ $ergebnisse = ((!isset($caller)||!in_array($caller,$callers))?'ergebnisse.php':'
 		suche($('#sucheingabe').val());
 	});
 
+	function testStr( tString, type )
+	{
+		switch (type) {
+			case "plz":
+				return !(tString.match(/^[0-9]{5}$/))? false:true;   
+			break;
+			case "blz":
+				return !(tString.match(/^[0-9]{8}$/))? false:true;   
+			break;
+			case "pos":
+				return !(tString.match(/^[0-9]{8}$/))? false:true;   
+			break;
+			default:
+				return !(tString.match(/([a-z0-9.,;:öäüß _-])/gi))? false:true;
+		}
+	}
+
+	$(".anzahl").keyup(function(){
+		var k="pos";
+		$e=$("#"+k);
+		$bg="#f00";
+		if ( testStr( $e.val(), k ) ) {
+			$bg="#0f0";
+		}
+		$e.css("background-color", $bg)
+	});
+//~ $(".anzahl").each(function(elm){
+	//~ if ( this.value < 0 ) {
+		//~ 
+	//~ }
+	//~ console.log( this.value + " - " this.css("background") );
+//~ });
+	//~ $(".anzahl").each(function(e){
+		//~ this.keyup(function(){
+			//~ $bg="#f00";
+			//~ if ( testStr( this.val(), "pos" ) ) {
+				//~ $bg="#0f0";
+			//~ }
+			//~ this.css("background-color", $bg)
+		//~ });
+	//~ });
  </script>
 <?php
 if(strpos($_SERVER["PHP_SELF"], 'suche.php'))

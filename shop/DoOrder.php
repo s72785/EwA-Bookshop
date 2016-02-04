@@ -1,30 +1,31 @@
 <?php
 @session_start();
+@ob_start();
 /* access data in config file (data not inside repo) */
 include_once( 'dbconf.php' );
 
 $refresh=15;
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+$html_debug='';
+$html_header='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>OnlineShop - Book Orders (Client)</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta http-equiv="refresh" content="<?=$refresh;?>; URL=/ewa/g05/?show=success">
+		<meta http-equiv="refresh" content="'.$refresh.'; URL=/ewa/g05/?show=success">
 	</head>
-	<body>
-<?php
-	echo('<h1>Vielen Dank - Seite <a href="/ewa/g05/?show=success">lädt nach '.$refresh.' Sekunden neu</a>.</h1>');
+	<body><h1>Vielen Dank - Seite <a href="/ewa/g05/?show=success">lädt nach '.$refresh.' Sekunden neu</a>.</h1><p>Diese Seite dient der Kontrolle von Anfrage und Antwort an den Webservice.</p>';
+
 	//////////////////////////////////////////////////////////////
 	// Author: Michael Heydeck, 04.12.2013
 
-	echo "<h1>Web Service Client: BookTrade - DoOrder</h1>";
+	$html_debug .=  "<h1>Web Service Client: BookTrade - DoOrder</h1>";
 
 	//////////////////////////////////////////////////////////////
 	// WSDL and Web-Service addresses
 	$wsdlAddr = 'http://141.56.131.108:8080/Reseller/BookTrade/?wsdl';
 	$wsAddr = 'http://141.56.131.108:8080/Reseller/BookTrade/';
 
-	echo "Creating SOAP-Client for ".$wsAddr." with wsdl: ".$wsdlAddr."<br/><br/>";
+	$html_debug .=  "Creating SOAP-Client for ".$wsAddr." with wsdl: ".$wsdlAddr."<br/><br/>";
 	//////////////////////////////////////////////////////////////
 	// Web Service Client
 	$client = new SoapClient($wsdlAddr, array('location' => $wsAddr, 'trace' => 1));
@@ -79,20 +80,20 @@ $refresh=15;
 				)
 			));
 
-		echo "DoOrder(...) called successfully - TrackingID: ".$result->DoOrderResult;
+		$html_request="DoOrder(...) called successfully - TrackingID: ".$result->DoOrderResult;
 
 		// Debug ouptput
-		soapDebug($client);
+		$answer=soapDebug($client);
+		$html_request.=$answer['html_request'];
+		$html_response=$answer['html_response'];
 	}
 	catch(SoapFault $exception)
 	{
 		soapDebug($client);
 
-		echo "<h3>Error</h3>";
+		$html_debug .=  "<h3>Error</h3>";
 		throw $exception;
 	}
-
-	unset($_SESSION['artikel']);
 
 	//////////////////////////////////////////////////////////////
 	// Functions
@@ -113,15 +114,25 @@ $refresh=15;
 		$responseHeaders = $client->__getLastResponseHeaders();
 		$response = prettyXml($client->__getLastResponse());
 
-		echo "<h3>Request</h3>";
-		echo '<code>' . nl2br(htmlspecialchars($requestHeaders, true)) . '</code>';
-		echo highlight_string($request, true) . "<br/>\n";
+		$html_request= ''//."<h3>Request</h3>"
+			. '<code>' . nl2br(htmlspecialchars($requestHeaders, true)) . '</code>'
+			. highlight_string($request, true) . "<br/>\n";
 
-		echo "<h3>Response</h3>";
-		echo '<code>' . nl2br(htmlspecialchars($responseHeaders, true)) . '</code>' . "<br/>\n";
-		echo highlight_string($response, true) . "<br/>\n";
+		$html_response= ''//."<h3>Response</h3>"
+			.'<code>' . nl2br(htmlspecialchars($responseHeaders, true)) . '</code>' . "<br/>\n"
+			.highlight_string($response, true) . "<br/>\n";
+		return array('html_request' => $html_request, 'html_response' => $html_response);
 	}
 	
+	$html_footer='</body>
+</html>';
+
+print( $html_header .'<h2>Informationen</h2> <div><h3>Antwort</h3> <div>'.$html_response.'</div><br><h3>Anfrage war</h3><div>' );
+
+ob_end_flush();
+
+print( $html_request.'</div></div>' );
+
+print( $html_footer );
+
 ?>
-	</body>
-</html>

@@ -8,6 +8,10 @@ $dblink = mysql_connect( $dbhost, $dbuser, $dbpass ) or
 mysql_select_db( $dbname );
 $suche = (isset($_POST['suche'])) ? $_POST['suche'] : '' ;
 
+//~ echo('<pre>test:'."\n");
+//~ print_r( mysql_escape_string('ö') );
+//~ echo('</pre>');
+
 $sql = 'SELECT bu.id AS id, barcode, titel, ve.name AS verlag, netto, au.name AS autor FROM 
 						buecher AS bu JOIN autor AS au ON au.id = bu.autorid
 						JOIN verlag AS ve ON ve.id = bu.verlagsid
@@ -38,7 +42,11 @@ if( $result === FALSE ) {
 //~ print_r($caller);
 //~ print_r($callers);
 //~ echo("</pre>");
-echo( '<form action="'.((!isset($caller)&&!in_array($caller,$callers))?'berechnung.php':'?show=berechnung').'" method="post">
+$action='?show=berechnung';
+if((!isset($caller) || !in_array($caller,$callers))) {
+$action='berechnung.php';
+}
+echo( '<form action="'.$action.'" method="post">
 <table border="1"><tr>'.'<th>Gewünschte Anzahl</th>'
 //.'<th>ISBN</th>'
 .'<th>Titel</th>'
