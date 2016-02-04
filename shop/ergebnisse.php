@@ -34,7 +34,11 @@ if( $result === FALSE ) {
 	  //~ 
 //~ 
 //~ -->
-echo( '<form action="'.((!isset($caller)||!in_array($caller,$callers))?'berechnung.php':'?show=berechnung').'" method="post">
+//~ echo("<pre>");
+//~ print_r($caller);
+//~ print_r($callers);
+//~ echo("</pre>");
+echo( '<form action="'.((!isset($caller)&&!in_array($caller,$callers))?'berechnung.php':'?show=berechnung').'" method="post">
 <table border="1"><tr>'.'<th>Gewünschte Anzahl</th>'
 //.'<th>ISBN</th>'
 .'<th>Titel</th>'
