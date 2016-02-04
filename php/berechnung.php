@@ -108,7 +108,10 @@ echo( "<hr />\n"
 	.'<span style="width:9em;display:inline-block;">Lieferzeit</span><span><span style="width:3em;display:inline-block;text-align:right;">'
 );
 
-include_once(((!isset($caller)||!in_array($caller,$callers))?'../':'').'shop/getDeliveryTime.php');
+//isbn=rnd
+$_GET['isbn']='rnd';
+//?isbn=4456458475
+include_once(((!isset($caller)&&!in_array($caller,$callers))?'../':'').'shop/getDeliveryTime.php');
 
 echo '</span>Tage<hr><span style="width:9em;display:inline-block;">Fand Shop über</span>'
 	. (!empty($werbung[$adpos])?$werbung[$adpos]:"keine Angaben") . "\n";
@@ -126,8 +129,9 @@ $blz=(isset($_POST['blz']))?$_POST['blz']:'85050300';//std:sparkasse dd
 $ccn=(isset($_POST['ccn']))?$_POST['ccn']:'41111';//std:irgendwas
 $ctr=/*(isset($_POST['ctr']))?$_POST['ctr']:*/'Deutschland';//std:irgendwas
 
-// action="'. ( ((!isset($caller)||!in_array($caller,$callers))?'../':'').'shop/DoOrder.php').'"
-echo( '<form type="post">
+$action=( ((!isset($caller)&&!in_array($caller,$callers))?'../':'').'shop/DoOrder.php');
+//print_r($action);
+echo( '<form type="post" action="'.$action.'">
 <div>
 <label for="plz">PLZ</label><input type="text" size="5" name="plz" id="plz" value="'.$plz.'">
 </div><div>
